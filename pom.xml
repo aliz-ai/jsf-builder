@@ -1,0 +1,216 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.doctusoft</groupId>
+	<artifactId>jsf-builder-parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>jsf-builder-parent</name>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>jsf-builder</module>
+		<module>jsf-example</module>
+	</modules>
+
+	<properties>
+		<version.guava>16.0.1</version.guava>
+		<lombok.ds.version>0.2.4</lombok.ds.version>
+		<ds.bean.version>0.2.5-SNAPSHOT</ds.bean.version>
+
+		<gwt.version>2.6.0</gwt.version>
+		<gae.version>1.9.3</gae.version>
+
+		<version.maven.clean.plugin>2.5</version.maven.clean.plugin>
+		<version.maven.install.plugin>2.4</version.maven.install.plugin>
+		<version.maven.release.plugin>2.4</version.maven.release.plugin>
+		<version.maven.source.plugin>2.2.1</version.maven.source.plugin>
+		<version.maven.compiler.plugin>3.0</version.maven.compiler.plugin>
+		<version.maven.jar.plugin>2.4</version.maven.jar.plugin>
+		<version.maven.war.plugin>2.4</version.maven.war.plugin>
+
+		<!-- maven-compiler-plugin -->
+		<maven.compiler.source>1.6</maven.compiler.source>
+		<maven.compiler.target>1.6</maven.compiler.target>
+
+	 	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	 </properties>
+
+	<build>
+
+		<pluginManagement>
+			<plugins>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>${version.maven.release.plugin}</version>
+					<configuration>
+						<!-- During release:perform, enable the "release" profile -->
+						<releaseProfiles>release</releaseProfiles>
+						<goals>deploy</goals>
+						<autoVersionSubmodules>true</autoVersionSubmodules>
+						<tagNameFormat>v@{project.version}</tagNameFormat>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${version.maven.compiler.plugin}</version>
+					<configuration>
+						<compilerVersion>${maven.compiler.target}</compilerVersion>
+						<source>${maven.compiler.source}</source>
+						<target>${maven.compiler.target}</target>
+						<encoding>${project.build.sourceEncoding}</encoding>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>${version.maven.clean.plugin}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>${version.maven.jar.plugin}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-install-plugin</artifactId>
+					<version>${version.maven.install.plugin}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.war.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>${version.maven.war.plugin}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+	</build>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.doctusoft</groupId>
+				<artifactId>lombok-ds</artifactId>
+				<version>${lombok.ds.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.doctusoft</groupId>
+				<artifactId>lombok-ds</artifactId>
+				<version>${lombok.ds.version}</version>
+				<classifier>runtime</classifier>
+			</dependency>
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${version.guava}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava-gwt</artifactId>
+				<version>${version.guava}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-beanutils</groupId>
+				<artifactId>commons-beanutils</artifactId>
+				<version>1.8.3</version>
+			</dependency>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.11</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.gwt</groupId>
+				<artifactId>gwt-user</artifactId>
+				<version>${gwt.version}</version>
+				<scope>provided</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	
+	<dependencies>
+		<dependency>
+			<groupId>com.doctusoft</groupId>
+			<artifactId>ds-bean</artifactId>
+			<version>${ds.bean.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.doctusoft</groupId>
+			<artifactId>ds-bean-binding</artifactId>
+			<version>${ds.bean.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.doctusoft</groupId>
+			<artifactId>ds-bean-apt</artifactId>
+			<version>${ds.bean.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.doctusoft</groupId>
+			<artifactId>lombok-ds</artifactId>
+		</dependency>
+
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>doctusoft.releases.public</id>
+			<url>http://pubrepo.doctusoft.com/nexus/content/repositories/releases</url>
+		</repository>
+		<repository>
+			<id>doctusoft.snapshots.public</id>
+			<url>http://pubrepo.doctusoft.com/nexus/content/repositories/snapshots</url>
+		</repository>
+		<repository>
+			<id>ds-thirdparty</id>
+			<url>http://repo.doctusoft.com/nexus/content/repositories/thirdparty</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+		<repository>
+			<id>ds-releases</id>
+			<url>http://repo.doctusoft.com/nexus/content/repositories/releases</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+		<repository>
+			<id>sonatype</id>
+			<url>http://oss.sonatype.org/content/repositories/snapshots</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</repository>
+	</repositories>
+
+	<distributionManagement>
+		<repository>
+			<id>doctusoft.releases.public</id>
+			<url>http://pubrepo.doctusoft.com/nexus/content/repositories/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>doctusoft.snapshots.public</id>
+			<url>http://pubrepo.doctusoft.com/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<scm>
+		<connection>scm:git:https://github.com/Doctusoft/jsf-builder</connection>
+    <tag>HEAD</tag>
+  </scm>
+</project>
