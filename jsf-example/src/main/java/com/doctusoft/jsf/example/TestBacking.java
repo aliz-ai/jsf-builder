@@ -31,4 +31,5 @@ public class TestBacking {
 	public void testMethod() {
 		setMessage("changed");
 	}
+	
 }

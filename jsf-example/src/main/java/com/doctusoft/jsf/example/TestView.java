@@ -6,10 +6,14 @@ import com.doctusoft.jsf.comp.JsfLabel;
 
 public class TestView extends AbstractBackingView<TestBacking> {
 	
+	private JsfLabel messageLabel;
+	private JsfButton testButton;
+
 	public TestView() {
 		super(TestBacking.class, "TestBacking");
-		new JsfLabel().bind(bindOnPresenter().get(TestBacking_._message)).appendTo(container);
-		new JsfButton("clickme").click(presenterMethod(TestBacking_.__testMethod)).appendTo(container);
+		messageLabel = new JsfLabel().bind(bindOnPresenter().get(TestBacking_._message))
+			.onclick("window.alert('hehe')").appendTo(container);
+		testButton = new JsfButton("clickme").action(presenterMethod(TestBacking_.__testMethod)).appendTo(container);
 	}
 
 }

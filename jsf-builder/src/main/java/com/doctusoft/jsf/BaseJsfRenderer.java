@@ -20,6 +20,10 @@ public class BaseJsfRenderer<Component extends UIComponent> implements Renderer 
 	public BaseJsfRenderer(Component component, JsfBaseComponentModel model) {
 		this.component = component;
 		this.model = model;
+		bind("onclick", model.getOnclick());
+		bind("onkeydown", model.getOnkeydown());
+		bind("onkeypress", model.getOnkeypress());
+		bind("onkeyup", model.getOnkeyup());
 	}
 
 	@Override
@@ -35,10 +39,14 @@ public class BaseJsfRenderer<Component extends UIComponent> implements Renderer 
 	 * Binds String values
 	 */
 	protected <T> void bind(String property, ValueBinding<String> binding) {
-		component.setValueExpression(property, new BindingWrapper<String>(binding, String.class));
+		if (binding != null) {
+			component.setValueExpression(property, new BindingWrapper<String>(binding, String.class));
+		}
 	}
 	
 	public void bindCommand(final EmptyEventHandler handler) {
+		if (handler == null)
+			return;
 		((UICommand) component).addActionListener(new ActionListener() {
 			@Override
 			public void processAction(ActionEvent event)

@@ -26,7 +26,7 @@ public class JsfButton extends JsfBaseComponent<JsfButton, JsfButtonModel> {
 		return this;
 	}
 	
-	public JsfButton click(EmptyEventHandler handler) {
+	public JsfButton action(EmptyEventHandler handler) {
 		model.setAction(handler);
 		return this;
 	}
