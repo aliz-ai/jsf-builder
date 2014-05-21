@@ -24,6 +24,8 @@ public class BaseJsfRenderer<Component extends UIComponent> implements Renderer 
 		bind("onkeydown", model.getOnkeydown());
 		bind("onkeypress", model.getOnkeypress());
 		bind("onkeyup", model.getOnkeyup());
+		bind("rendered", model.getRendered(), Boolean.class);
+		bind("disabled", model.getDisabled(), Boolean.class);
 	}
 
 	@Override

@@ -21,7 +21,9 @@ public class JsfBaseComponentModel implements HasComponentModel {
 	private ValueBinding<String> style;
 	
 	private ValueBinding<String> styleClass;
-	
+
+	private ValueBinding<Boolean> disabled;
+
 	@Override
 	public JsfBaseComponentModel getModel() {
 		return this;
