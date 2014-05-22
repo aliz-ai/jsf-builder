@@ -6,7 +6,9 @@ import com.doctusoft.jsf.comp.JsfCheckbox;
 import com.doctusoft.jsf.comp.JsfForm;
 import com.doctusoft.jsf.comp.JsfInputText;
 import com.doctusoft.jsf.comp.JsfLabel;
+import com.doctusoft.jsf.comp.JsfSelectOneMenu;
 import com.doctusoft.jsf.comp.JsfTextarea;
+import com.doctusoft.jsf.example.TestBacking.PaymentType;
 
 public class TestView extends AbstractBackingView<TestBacking> {
 	
@@ -23,6 +25,9 @@ public class TestView extends AbstractBackingView<TestBacking> {
 		testButton = new JsfButton("mainButton", "clickme").action(presenterMethod(TestBacking_.__testMethod)).appendTo(form);
 		new JsfCheckbox("testCheckbox").appendTo(form);
 		new JsfTextarea("testTextarea").appendTo(form);
+		new JsfSelectOneMenu<PaymentType>("paymentTypeSelect")
+			.bindValue(bindOnPresenter().get(TestBacking_._selectedPaymentType))
+			.withSelectItems(TestBacking.paymentTypeSelectItems).appendTo(form);
 	}
 
 }

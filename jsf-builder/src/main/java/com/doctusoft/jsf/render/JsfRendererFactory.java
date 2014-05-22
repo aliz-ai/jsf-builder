@@ -8,6 +8,7 @@ import com.doctusoft.jsf.comp.model.JsfInputTextModel;
 import com.doctusoft.jsf.comp.model.JsfLabelModel;
 import com.doctusoft.jsf.comp.model.JsfOutputTextModel;
 import com.doctusoft.jsf.comp.model.JsfPanelGroupModel;
+import com.doctusoft.jsf.comp.model.JsfSelectModel;
 import com.doctusoft.jsf.comp.model.JsfTextareaModel;
 
 public class JsfRendererFactory {
@@ -36,6 +37,8 @@ public class JsfRendererFactory {
 			return new JsfOutputTextRenderer((JsfOutputTextModel) model);
 		if (model instanceof JsfFormModel)
 			return new JsfFormRenderer((JsfFormModel) model);
+		if (model instanceof JsfSelectModel)
+			return new JsfSelectOneMenuRenderer((JsfSelectModel) model);
 		return null;
 	}
 

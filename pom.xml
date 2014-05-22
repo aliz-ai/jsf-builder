@@ -15,7 +15,7 @@
 	<properties>
 		<version.guava>16.0.1</version.guava>
 		<lombok.ds.version>0.2.4</lombok.ds.version>
-		<ds.bean.version>0.2.5-SNAPSHOT</ds.bean.version>
+		<ds.bean.version>0.2.7-SNAPSHOT</ds.bean.version>
 
 		<gwt.version>2.6.0</gwt.version>
 		<gae.version>1.9.3</gae.version>
