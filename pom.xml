@@ -8,6 +8,7 @@
 
 	<modules>
 		<module>jsf-builder</module>
+		<module>jsf-primefaces-builder</module>
 		<module>jsf-example</module>
 	</modules>
 
@@ -158,6 +159,12 @@
 	</dependencies>
 
 	<repositories>
+		<repository>  
+		    <id>prime-repo</id>  
+		    <name>PrimeFaces Maven Repository</name>  
+		    <url>http://repository.primefaces.org</url>  
+		    <layout>default</layout>  
+		</repository>  
 		<repository>
 			<id>doctusoft.releases.public</id>
 			<url>http://pubrepo.doctusoft.com/nexus/content/repositories/releases</url>
