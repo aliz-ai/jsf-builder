@@ -8,6 +8,8 @@ import javax.faces.event.ActionListener;
 
 import com.doctusoft.bean.binding.EmptyEventHandler;
 import com.doctusoft.bean.binding.ValueBinding;
+import com.doctusoft.jsf.AbstractRendererFactory;
+import com.doctusoft.jsf.RendererFactory;
 import com.doctusoft.jsf.binding.BindingWrapper;
 import com.doctusoft.jsf.comp.model.JsfBaseComponentModel;
 
@@ -29,7 +31,7 @@ public class JsfBaseRenderer<Component extends UIComponent> implements Renderer 
 		bind("style", model.getStyle());
 		bind("styleClass", model.getStyleClass());
 		// TODO resolve a renderfactory instance in a customizable way
-		JsfRendererFactory jsfRendererFactory = new JsfRendererFactory();
+		AbstractRendererFactory jsfRendererFactory = RendererFactory.get();
 		for (JsfBaseComponentModel child : model.getChildren()) {
 			 component.getChildren().add(jsfRendererFactory.getRenderer(child).getComponent());
 		}

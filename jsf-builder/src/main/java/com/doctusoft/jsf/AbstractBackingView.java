@@ -8,7 +8,6 @@ import com.doctusoft.bean.binding.ValueBindingBuilder;
 import com.doctusoft.jsf.binding.ELRootBinding;
 import com.doctusoft.jsf.binding.JsfBindings;
 import com.doctusoft.jsf.comp.JsfPanelGroup;
-import com.doctusoft.jsf.render.JsfPanelGroupRenderer;
 
 
 public class AbstractBackingView<Backing> {
@@ -24,8 +23,7 @@ public class AbstractBackingView<Backing> {
 	}
 	
 	public UIComponent getComponent() {
-		// TODO: resolve customized rendererfactory for the case the developer wants to customize container rendering
-		return new JsfPanelGroupRenderer(container.getModel()).getComponent();
+		return RendererFactory.get().getRenderer(container.getModel()).getComponent();
 	}
 	
 	protected ValueBindingBuilder<Backing> bindOnPresenter() {

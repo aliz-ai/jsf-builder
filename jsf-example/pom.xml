@@ -23,7 +23,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.doctusoft</groupId>
-			<artifactId>jsf-builder</artifactId>
+			<artifactId>jsf-primefaces-builder</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>

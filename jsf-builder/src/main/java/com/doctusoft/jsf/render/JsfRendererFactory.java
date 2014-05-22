@@ -1,5 +1,6 @@
 package com.doctusoft.jsf.render;
 
+import com.doctusoft.jsf.AbstractRendererFactory;
 import com.doctusoft.jsf.comp.model.JsfBaseComponentModel;
 import com.doctusoft.jsf.comp.model.JsfButtonModel;
 import com.doctusoft.jsf.comp.model.JsfCheckboxModel;
@@ -11,14 +12,7 @@ import com.doctusoft.jsf.comp.model.JsfPanelGroupModel;
 import com.doctusoft.jsf.comp.model.JsfSelectModel;
 import com.doctusoft.jsf.comp.model.JsfTextareaModel;
 
-public class JsfRendererFactory {
-	
-	public Renderer getRenderer(JsfBaseComponentModel model) {
-		Renderer renderer = resolveRenderer(model);
-		if (renderer == null)
-			throw new NoRendererFoundException(model);
-		return renderer;
-	}
+public class JsfRendererFactory extends AbstractRendererFactory {
 	
 	public Renderer resolveRenderer(JsfBaseComponentModel model) {
 		if (model instanceof JsfLabelModel)
@@ -42,9 +36,4 @@ public class JsfRendererFactory {
 		return null;
 	}
 
-	public class NoRendererFoundException extends RuntimeException {
-		public NoRendererFoundException(JsfBaseComponentModel model) {
-			super("No renderer found for model: " + model);
-		}
-	}
 }
