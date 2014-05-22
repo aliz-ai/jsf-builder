@@ -4,7 +4,7 @@ import javax.faces.component.html.HtmlOutputLabel;
 
 import com.doctusoft.jsf.comp.model.JsfLabelModel;
 
-public class JsfLabelRenderer extends BaseJsfRenderer<HtmlOutputLabel> {
+public class JsfLabelRenderer extends JsfBaseRenderer<HtmlOutputLabel> {
 	
 	public JsfLabelRenderer(JsfLabelModel model) {
 		super(new HtmlOutputLabel(), model);

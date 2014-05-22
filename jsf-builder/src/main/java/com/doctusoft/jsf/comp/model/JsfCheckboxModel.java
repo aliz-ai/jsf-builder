@@ -5,6 +5,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter @Setter @NoArgsConstructor
-public class JsfCheckboxModel extends JsfUIInputModel<Boolean> {
+public class JsfCheckboxModel extends JsfInputModel<Boolean> {
 
 }

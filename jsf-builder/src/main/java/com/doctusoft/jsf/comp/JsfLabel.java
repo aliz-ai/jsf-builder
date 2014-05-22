@@ -10,6 +10,11 @@ public class JsfLabel extends JsfBaseComponent<JsfLabel, JsfLabelModel> {
 		super(new JsfLabelModel());
 	}
 	
+	public JsfLabel(String label) {
+		super(new JsfLabelModel());
+		withLabel(label);
+	}
+
 	public JsfLabel bind(ValueBinding<String> binding) {
 		model.setLabel(binding);
 		return this;

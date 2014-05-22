@@ -61,11 +61,21 @@ public abstract class JsfBaseComponent<Actual, Model extends JsfBaseComponentMod
 		return (Actual) this;
 	}
 	
+	public Actual withStyleClasses(String styleClasses) {
+		model.setStyleClass(new ConstantValueBinding<String>(styleClasses));
+		return (Actual) this;
+	}
+	
 	public Actual style(ValueBinding<String> style) {
 		model.setStyle(style);
 		return (Actual) this;
 	}
 	
+	public Actual withStyle(String style) {
+		model.setStyle(new ConstantValueBinding<String>(style));
+		return (Actual) this;
+	}
+
 	/**
 	 * Can't be used together with the 'styleClass' builder method 
 	 */

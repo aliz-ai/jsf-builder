@@ -16,6 +16,9 @@ public class TestBacking {
 	@ObservableProperty
 	private String message = "hello world";
 	
+	@ObservableProperty
+	private String input = "";
+	
 	public HtmlPanelGroup getView() {
 		if (view == null) {
 			view = (HtmlPanelGroup) new TestView().getComponent();
@@ -29,7 +32,7 @@ public class TestBacking {
 
 	@MethodRef
 	public void testMethod() {
-		setMessage("changed");
+		setMessage("you typed: " + input);
 	}
 	
 }

@@ -6,9 +6,9 @@ import lombok.Setter;
 import com.doctusoft.bean.binding.ValueBinding;
 
 @Getter @Setter
-public class JsfUIInputModel<ValueType> extends JsfBaseComponentModel {
+public class JsfInputModel<Value> extends JsfBaseComponentModel {
 
-	private ValueBinding<ValueType> value;
+	private ValueBinding<Value> value;
 	private ValueBinding<Boolean> required;
 	private ValueBinding<String> requiredMessage;
 	private ValueBinding<Boolean> readonly;

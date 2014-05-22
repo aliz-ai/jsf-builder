@@ -2,8 +2,11 @@ package com.doctusoft.jsf;
 
 import com.doctusoft.jsf.comp.model.JsfBaseComponentModel;
 import com.doctusoft.jsf.comp.model.JsfButtonModel;
+import com.doctusoft.jsf.comp.model.JsfCheckboxModel;
 import com.doctusoft.jsf.comp.model.JsfContainerModel;
+import com.doctusoft.jsf.comp.model.JsfInputTextModel;
 import com.doctusoft.jsf.comp.model.JsfLabelModel;
+import com.doctusoft.jsf.comp.model.JsfTextareaModel;
 import com.doctusoft.jsf.render.Renderer;
 
 public class JsfRendererFactory {
@@ -22,6 +25,12 @@ public class JsfRendererFactory {
 			return new JsfContainerRenderer((JsfContainerModel) model);
 		if (model instanceof JsfButtonModel)
 			return new JsfButtonRenderer((JsfButtonModel) model);
+		if (model instanceof JsfInputTextModel)
+			return new JsfInputTextRenderer((JsfInputTextModel) model);
+		if (model instanceof JsfCheckboxModel)
+			return new JsfCheckboxRenderer((JsfCheckboxModel) model);
+		if (model instanceof JsfTextareaModel)
+			return new JsfTextareaRenderer((JsfTextareaModel) model);
 		return null;
 	}
 

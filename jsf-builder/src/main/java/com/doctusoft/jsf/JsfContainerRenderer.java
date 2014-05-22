@@ -5,7 +5,7 @@ import javax.faces.component.html.HtmlPanelGroup;
 import com.doctusoft.jsf.comp.model.JsfBaseComponentModel;
 import com.doctusoft.jsf.comp.model.JsfContainerModel;
 
-public class JsfContainerRenderer extends BaseJsfRenderer<HtmlPanelGroup> {
+public class JsfContainerRenderer extends JsfBaseRenderer<HtmlPanelGroup> {
 	
 	public JsfContainerRenderer(JsfContainerModel model) {
 		super(new HtmlPanelGroup(), model);

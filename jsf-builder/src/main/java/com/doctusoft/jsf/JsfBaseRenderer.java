@@ -12,12 +12,12 @@ import com.doctusoft.jsf.binding.BindingWrapper;
 import com.doctusoft.jsf.comp.model.JsfBaseComponentModel;
 import com.doctusoft.jsf.render.Renderer;
 
-public class BaseJsfRenderer<Component extends UIComponent> implements Renderer {
+public class JsfBaseRenderer<Component extends UIComponent> implements Renderer {
 	
 	private JsfBaseComponentModel model;
 	protected Component component;
 
-	public BaseJsfRenderer(Component component, JsfBaseComponentModel model) {
+	public JsfBaseRenderer(Component component, JsfBaseComponentModel model) {
 		this.component = component;
 		this.model = model;
 		bind("onclick", model.getOnclick());
@@ -26,6 +26,8 @@ public class BaseJsfRenderer<Component extends UIComponent> implements Renderer 
 		bind("onkeyup", model.getOnkeyup());
 		bind("rendered", model.getRendered(), Boolean.class);
 		bind("disabled", model.getDisabled(), Boolean.class);
+		bind("style", model.getStyle());
+		bind("styleClass", model.getStyleClass());
 	}
 
 	@Override
@@ -34,7 +36,9 @@ public class BaseJsfRenderer<Component extends UIComponent> implements Renderer 
 	}
 	
 	protected <T> void bind(String property, ValueBinding<T> binding, Class<T> type) {
-		component.setValueExpression(property, new BindingWrapper<T>(binding, type));
+		if (binding != null) {
+			component.setValueExpression(property, new BindingWrapper<T>(binding, type));
+		}
 	}
 
 	/**
