@@ -1,4 +1,4 @@
-package com.doctusoft.jsf;
+package com.doctusoft.jsf.render;
 
 import com.doctusoft.jsf.comp.model.JsfBaseComponentModel;
 import com.doctusoft.jsf.comp.model.JsfButtonModel;
@@ -7,7 +7,6 @@ import com.doctusoft.jsf.comp.model.JsfContainerModel;
 import com.doctusoft.jsf.comp.model.JsfInputTextModel;
 import com.doctusoft.jsf.comp.model.JsfLabelModel;
 import com.doctusoft.jsf.comp.model.JsfTextareaModel;
-import com.doctusoft.jsf.render.Renderer;
 
 public class JsfRendererFactory {
 	

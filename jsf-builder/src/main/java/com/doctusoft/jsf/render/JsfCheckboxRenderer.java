@@ -1,4 +1,4 @@
-package com.doctusoft.jsf;
+package com.doctusoft.jsf.render;
 
 import javax.faces.component.html.HtmlSelectBooleanCheckbox;
 

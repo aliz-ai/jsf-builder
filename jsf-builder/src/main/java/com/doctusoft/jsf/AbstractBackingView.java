@@ -8,6 +8,7 @@ import com.doctusoft.bean.binding.ValueBindingBuilder;
 import com.doctusoft.jsf.binding.ELRootBinding;
 import com.doctusoft.jsf.binding.JsfBindings;
 import com.doctusoft.jsf.comp.JsfContainer;
+import com.doctusoft.jsf.render.JsfContainerRenderer;
 
 
 public class AbstractBackingView<Backing> {

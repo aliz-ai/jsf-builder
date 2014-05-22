@@ -1,4 +1,4 @@
-package com.doctusoft.jsf;
+package com.doctusoft.jsf.render;
 
 import javax.faces.component.UICommand;
 import javax.faces.component.UIComponent;
@@ -10,7 +10,6 @@ import com.doctusoft.bean.binding.EmptyEventHandler;
 import com.doctusoft.bean.binding.ValueBinding;
 import com.doctusoft.jsf.binding.BindingWrapper;
 import com.doctusoft.jsf.comp.model.JsfBaseComponentModel;
-import com.doctusoft.jsf.render.Renderer;
 
 public class JsfBaseRenderer<Component extends UIComponent> implements Renderer {
 	
