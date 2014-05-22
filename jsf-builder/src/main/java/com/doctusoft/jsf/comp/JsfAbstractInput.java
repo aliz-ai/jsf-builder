@@ -10,6 +10,16 @@ public abstract class JsfAbstractInput<Actual extends JsfAbstractInput, Value, M
 	public JsfAbstractInput(String id, Model model) {
 		super(id, model);
 	}
+	
+	public Actual immediate() {
+		model.setImmediate(true);
+		return (Actual) this;
+	}
+	
+	public Actual withImmediate(boolean immediate) {
+		model.setImmediate(immediate);
+		return (Actual) this;
+	}
 
 	public Actual bind(ValueBinding<Value> binding) {
 		model.setValue(binding);

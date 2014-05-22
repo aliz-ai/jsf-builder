@@ -4,7 +4,7 @@ import javax.faces.component.html.HtmlCommandButton;
 
 import com.doctusoft.jsf.comp.model.JsfButtonModel;
 
-public class JsfButtonRenderer extends JsfBaseRenderer<HtmlCommandButton> {
+public class JsfButtonRenderer extends JsfBaseComponentRenderer<HtmlCommandButton> {
 	
 	public JsfButtonRenderer(JsfButtonModel model) {
 		this(new HtmlCommandButton(), model);

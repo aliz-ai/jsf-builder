@@ -4,7 +4,7 @@ import javax.faces.component.html.HtmlForm;
 
 import com.doctusoft.jsf.comp.model.JsfFormModel;
 
-public class JsfFormRenderer extends JsfBaseRenderer<HtmlForm> {
+public class JsfFormRenderer extends JsfBaseComponentRenderer<HtmlForm> {
 	
 	public JsfFormRenderer(JsfFormModel model) {
 		super(new HtmlForm(), model);

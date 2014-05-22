@@ -7,16 +7,25 @@ import javax.faces.component.html.HtmlPanelGroup;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.doctusoft.MethodRef;
+import com.doctusoft.Property;
+
 @SessionScoped
-@ManagedBean(name="PrimeTestBacking")
+@ManagedBean(name="AjaxTestBacking")
 @Getter @Setter
-public class PrimeTestBacking {
+public class AjaxTestBacking {
 
 	private HtmlPanelGroup view = null;
+
+	@Property
+	private String inputValue;
 	
+	@Property
+	private String message;
+
 	public HtmlPanelGroup getView() {
 		if (view == null) {
-			view = (HtmlPanelGroup) new PrimeTestView().getComponent();
+			view = (HtmlPanelGroup) new AjaxTestView().getComponent();
 		}
 		return view;
 	}
@@ -25,4 +34,9 @@ public class PrimeTestBacking {
 		// do nothing
 	}
 
+	
+	@MethodRef
+	public void testMethod() {
+		setMessage("you entered: " + inputValue);
+	}
 }

@@ -12,5 +12,6 @@ public class JsfInputModel<Value> extends JsfBaseComponentModel {
 	private ValueBinding<Boolean> required;
 	private ValueBinding<String> requiredMessage;
 	private ValueBinding<Boolean> readonly;
+	private boolean immediate = false;
 	
 }

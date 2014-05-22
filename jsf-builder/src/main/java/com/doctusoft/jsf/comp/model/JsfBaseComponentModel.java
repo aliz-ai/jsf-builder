@@ -30,6 +30,8 @@ public class JsfBaseComponentModel implements HasComponentModel {
 	private ValueBinding<Boolean> disabled;
 	
 	private List<JsfBaseComponentModel> children = Lists.newArrayList();
+	
+	private JsfAjaxBehaviorModel ajaxModel = null;
 
 	@Override
 	public JsfBaseComponentModel getModel() {

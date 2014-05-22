@@ -14,6 +14,16 @@ public class PCommandButton extends JsfAbstractButton<PCommandButton, PCommandBu
 		super(id, new PCommandButtonModel());
 	}
 	
+	public PCommandButton update(String update) {
+		model.getAjaxActionModel().setUpdate(update);
+		return this;
+	}
+	
+	public PCommandButton process(String process) {
+		model.getAjaxActionModel().setProcess(process);
+		return this;
+	}
+	
 	public PCommandButton(String id, String caption) {
 		this(id);
 		withCaption(caption);

@@ -2,6 +2,10 @@ package com.doctusoft.jsf.render;
 
 import javax.faces.component.UICommand;
 import javax.faces.component.UIComponent;
+import javax.faces.component.UIOutput;
+import javax.faces.component.behavior.AjaxBehavior;
+import javax.faces.component.behavior.ClientBehaviorHolder;
+import javax.faces.context.FacesContext;
 import javax.faces.event.AbortProcessingException;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ActionListener;
@@ -12,13 +16,16 @@ import com.doctusoft.jsf.AbstractRendererFactory;
 import com.doctusoft.jsf.RendererFactory;
 import com.doctusoft.jsf.binding.BindingWrapper;
 import com.doctusoft.jsf.comp.model.JsfBaseComponentModel;
+import com.google.common.collect.ImmutableList;
+import com.sun.faces.facelets.tag.jsf.core.AjaxHandler;
+import com.sun.faces.renderkit.RenderKitUtils;
 
-public class JsfBaseRenderer<Component extends UIComponent> implements Renderer {
+public class JsfBaseComponentRenderer<Component extends UIComponent> implements Renderer {
 	
 	private JsfBaseComponentModel model;
 	protected Component component;
 
-	public JsfBaseRenderer(Component component, JsfBaseComponentModel model) {
+	public JsfBaseComponentRenderer(Component component, JsfBaseComponentModel model) {
 		this.component = component;
 		this.model = model;
 		component.setId(model.getId());
@@ -30,10 +37,23 @@ public class JsfBaseRenderer<Component extends UIComponent> implements Renderer 
 		bind("disabled", model.getDisabled(), Boolean.class);
 		bind("style", model.getStyle());
 		bind("styleClass", model.getStyleClass());
-		// TODO resolve a renderfactory instance in a customizable way
+		// render children
 		AbstractRendererFactory jsfRendererFactory = RendererFactory.get();
 		for (JsfBaseComponentModel child : model.getChildren()) {
 			 component.getChildren().add(jsfRendererFactory.getRenderer(child).getComponent());
+		}
+		// handle ajax behaviour
+		if (model.getAjaxModel() != null) {
+			installAjaxResourceIfNecessary();
+			AjaxBehavior ajaxBehavior = new AjaxBehavior();
+			ClientBehaviorHolder clientBehaviorHolder = (ClientBehaviorHolder) component;
+			String eventName = null;
+			if (eventName == null) {
+				eventName = clientBehaviorHolder.getDefaultEventName();
+			}
+			ajaxBehavior.setExecute(ImmutableList.of("@form"));
+			ajaxBehavior.setRender(ImmutableList.of("@form"));
+			clientBehaviorHolder.addClientBehavior(eventName, ajaxBehavior);
 		}
 	}
 
@@ -68,4 +88,34 @@ public class JsfBaseRenderer<Component extends UIComponent> implements Renderer 
 			}
 		});
 	}
+	
+    /**
+     *  Copy-pasted from {@link AjaxHandler}
+     */
+    private void installAjaxResourceIfNecessary() {
+
+        FacesContext context = FacesContext.getCurrentInstance();
+        if (RenderKitUtils.hasScriptBeenRendered(context)) {
+            // Already included, return
+            return;
+        }
+
+        final String name = "jsf.js";
+        final String library = "javax.faces";
+
+        if (RenderKitUtils.hasResourceBeenInstalled(context, name, library)) {
+            RenderKitUtils.setScriptAsRendered(context);
+            return;
+        }
+        UIOutput output = new UIOutput();
+        output.setRendererType("javax.faces.resource.Script");
+        output.getAttributes().put("name", name);
+        output.getAttributes().put("library", library);
+        context.getViewRoot().addComponentResource(context, output, "head");
+
+        // Set the context to record script as included
+        RenderKitUtils.setScriptAsRendered(context);
+
+    }
+
 }
