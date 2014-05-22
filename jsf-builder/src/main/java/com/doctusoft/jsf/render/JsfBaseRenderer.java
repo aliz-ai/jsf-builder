@@ -19,6 +19,7 @@ public class JsfBaseRenderer<Component extends UIComponent> implements Renderer 
 	public JsfBaseRenderer(Component component, JsfBaseComponentModel model) {
 		this.component = component;
 		this.model = model;
+		component.setId(model.getId());
 		bind("onclick", model.getOnclick());
 		bind("onkeydown", model.getOnkeydown());
 		bind("onkeypress", model.getOnkeypress());
@@ -27,6 +28,11 @@ public class JsfBaseRenderer<Component extends UIComponent> implements Renderer 
 		bind("disabled", model.getDisabled(), Boolean.class);
 		bind("style", model.getStyle());
 		bind("styleClass", model.getStyleClass());
+		// TODO resolve a renderfactory instance in a customizable way
+		JsfRendererFactory jsfRendererFactory = new JsfRendererFactory();
+		for (JsfBaseComponentModel child : model.getChildren()) {
+			 component.getChildren().add(jsfRendererFactory.getRenderer(child).getComponent());
+		}
 	}
 
 	@Override

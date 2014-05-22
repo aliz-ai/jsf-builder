@@ -7,8 +7,8 @@ import com.doctusoft.jsf.comp.model.JsfInputModel;
 public abstract class JsfAbstractInput<Actual extends JsfAbstractInput, Value, Model extends JsfInputModel<Value>> extends
 		JsfBaseComponent<Actual, Model> {
 	
-	public JsfAbstractInput(Model model) {
-		super(model);
+	public JsfAbstractInput(String id, Model model) {
+		super(id, model);
 	}
 
 	public Actual bind(ValueBinding<Value> binding) {

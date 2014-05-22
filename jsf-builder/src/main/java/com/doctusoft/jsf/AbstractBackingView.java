@@ -7,8 +7,8 @@ import com.doctusoft.bean.binding.EmptyEventHandler;
 import com.doctusoft.bean.binding.ValueBindingBuilder;
 import com.doctusoft.jsf.binding.ELRootBinding;
 import com.doctusoft.jsf.binding.JsfBindings;
-import com.doctusoft.jsf.comp.JsfContainer;
-import com.doctusoft.jsf.render.JsfContainerRenderer;
+import com.doctusoft.jsf.comp.JsfPanelGroup;
+import com.doctusoft.jsf.render.JsfPanelGroupRenderer;
 
 
 public class AbstractBackingView<Backing> {
@@ -16,7 +16,7 @@ public class AbstractBackingView<Backing> {
 	private Class<Backing> backingClass;
 	private String backingName;
 	
-	protected JsfContainer container = new JsfContainer();
+	protected JsfPanelGroup container = new JsfPanelGroup();
 
 	public AbstractBackingView(Class<Backing> backingClass, String backingName) {
 		this.backingClass = backingClass;
@@ -25,7 +25,7 @@ public class AbstractBackingView<Backing> {
 	
 	public UIComponent getComponent() {
 		// TODO: resolve customized rendererfactory for the case the developer wants to customize container rendering
-		return new JsfContainerRenderer(container.getModel()).getComponent();
+		return new JsfPanelGroupRenderer(container.getModel()).getComponent();
 	}
 	
 	protected ValueBindingBuilder<Backing> bindOnPresenter() {

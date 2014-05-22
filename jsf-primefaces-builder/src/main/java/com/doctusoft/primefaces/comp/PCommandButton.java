@@ -10,12 +10,12 @@ import com.doctusoft.jsf.comp.model.JsfButtonModel;
  */
 public class PCommandButton extends JsfAbstractButton<PCommandButton, JsfButtonModel> {
 	
-	public PCommandButton() {
-		super(new JsfButtonModel());
+	public PCommandButton(String id) {
+		super(id, new JsfButtonModel());
 	}
 	
-	public PCommandButton(String caption) {
-		this();
+	public PCommandButton(String id, String caption) {
+		this(id);
 		withCaption(caption);
 	}
 }

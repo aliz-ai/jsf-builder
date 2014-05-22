@@ -6,8 +6,8 @@ import com.doctusoft.jsf.comp.model.JsfInputTextModel;
 
 public class JsfInputText extends JsfAbstractInput<JsfInputText, String, JsfInputTextModel> {
 
-	public JsfInputText() {
-		super(new JsfInputTextModel());
+	public JsfInputText(String id) {
+		super(id, new JsfInputTextModel());
 	}
 	
 	public JsfInputText withMaxLength(int value) {

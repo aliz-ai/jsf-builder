@@ -6,8 +6,8 @@ import com.doctusoft.jsf.comp.model.JsfOutputTextModel;
 
 public class JsfOutputText extends JsfBaseComponent<JsfOutputText, JsfOutputTextModel> {
 
-	public JsfOutputText() {
-		super(new JsfOutputTextModel());
+	public JsfOutputText(String id) {
+		super(id, new JsfOutputTextModel());
 	}
 	
 	public JsfOutputText bind(ValueBinding<String> binding) {

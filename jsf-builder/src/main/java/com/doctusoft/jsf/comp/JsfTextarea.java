@@ -5,8 +5,8 @@ import com.doctusoft.jsf.comp.model.JsfTextareaModel;
 
 public class JsfTextarea extends JsfAbstractInput<JsfTextarea, String, JsfTextareaModel> {
 
-	public JsfTextarea() {
-		super(new JsfTextareaModel());
+	public JsfTextarea(String id) {
+		super(id, new JsfTextareaModel());
 	}
 	
 	public JsfTextarea withRows(int rows) {

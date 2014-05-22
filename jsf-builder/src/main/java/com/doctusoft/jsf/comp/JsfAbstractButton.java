@@ -7,8 +7,8 @@ import com.doctusoft.jsf.comp.model.JsfButtonModel;
 
 public abstract class JsfAbstractButton<Actual, Model extends JsfButtonModel> extends JsfBaseComponent<Actual, Model> {
 	
-	public JsfAbstractButton(Model model) {
-		super(model);
+	public JsfAbstractButton(String id, Model model) {
+		super(id, model);
 	}
 
 	public Actual bindCaption(ValueBinding<String> caption) {

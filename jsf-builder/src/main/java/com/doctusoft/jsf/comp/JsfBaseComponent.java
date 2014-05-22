@@ -14,14 +14,15 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
 import com.google.common.collect.Lists;
 
-public abstract class JsfBaseComponent<Actual, Model extends JsfBaseComponentModel> implements HasComponentModel {
+public abstract class JsfBaseComponent<Actual, Model extends JsfBaseComponentModel> implements HasComponentModel, IsContainer<Actual> {
 	
 	protected Model model;
 	
 	protected List<SyleClassRegistration> syleClassRegistrations = null;
 	
-	public JsfBaseComponent(Model model) {
+	public JsfBaseComponent(String id, Model model) {
 		this.model = model;
+		model.setId(id);
 	}
 
 	public Model getModel() {
@@ -75,6 +76,13 @@ public abstract class JsfBaseComponent<Actual, Model extends JsfBaseComponentMod
 		model.setStyle(new ConstantValueBinding<String>(style));
 		return (Actual) this;
 	}
+	
+	public Actual add(HasComponentModel component) {
+		model.getChildren().add(component.getModel());
+		return (Actual) this;
+	}
+
+
 
 	/**
 	 * Can't be used together with the 'styleClass' builder method 

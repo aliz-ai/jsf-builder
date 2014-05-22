@@ -6,12 +6,12 @@ import com.doctusoft.jsf.comp.model.JsfLabelModel;
 
 public class JsfLabel extends JsfBaseComponent<JsfLabel, JsfLabelModel> {
 	
-	public JsfLabel() {
-		super(new JsfLabelModel());
+	public JsfLabel(String id) {
+		super(id, new JsfLabelModel());
 	}
 	
-	public JsfLabel(String label) {
-		super(new JsfLabelModel());
+	public JsfLabel(String id, String label) {
+		this(id);
 		withLabel(label);
 	}
 
