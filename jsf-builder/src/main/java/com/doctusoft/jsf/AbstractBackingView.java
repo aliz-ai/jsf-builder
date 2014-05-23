@@ -27,6 +27,10 @@ public class AbstractBackingView<Backing> {
 		return RendererFactory.get().getRenderer(container.getModel()).getComponent();
 	}
 	
+	public Backing resolveBacking() {
+		return ELRootBinding.resolve(backingClass, backingName);
+	}
+	
 	protected ValueBindingBuilder<Backing> bindOnPresenter() {
 		return JsfBindings.on(backingClass, backingName);
 	}

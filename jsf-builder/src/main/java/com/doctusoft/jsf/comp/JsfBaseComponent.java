@@ -56,6 +56,11 @@ public abstract class JsfBaseComponent<Actual, Model extends JsfBaseComponentMod
 		return (Actual) this;
 	}
 	
+	public Actual bindRendered(ValueBinding<Boolean> renderedBinding) {
+		model.setRendered(renderedBinding);
+		return (Actual) this;
+	}
+	
 	/**
 	 * Can't be used together with bindStyleClassPresent 
 	 */

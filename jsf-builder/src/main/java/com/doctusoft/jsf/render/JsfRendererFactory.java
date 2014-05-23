@@ -11,6 +11,7 @@ import com.doctusoft.jsf.comp.model.JsfInputTextModel;
 import com.doctusoft.jsf.comp.model.JsfLabelModel;
 import com.doctusoft.jsf.comp.model.JsfOutputTextModel;
 import com.doctusoft.jsf.comp.model.JsfPanelGroupModel;
+import com.doctusoft.jsf.comp.model.JsfRepeatModel;
 import com.doctusoft.jsf.comp.model.JsfSelectModel;
 import com.doctusoft.jsf.comp.model.JsfTextareaModel;
 
@@ -39,6 +40,8 @@ public class JsfRendererFactory extends AbstractRendererFactory {
 			return new JsfCustomElementRenderer((JsfCustomElementModel) model);
 		if (model instanceof JsfCustomContentModel)
 			return new JsfCustomContentRenderer((JsfCustomContentModel) model);
+		if (model instanceof JsfRepeatModel)
+			return new JsfRepeatRenderer((JsfRepeatModel) model);
 		return null;
 	}
 
