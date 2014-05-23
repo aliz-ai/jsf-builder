@@ -84,6 +84,7 @@ public abstract class JsfBaseComponent<Actual, Model extends JsfBaseComponentMod
 			model.setChildren(new ArrayList<JsfBaseComponentModel>());
 		}
 		model.getChildren().add(component.getModel());
+		component.getModel().setParent(model);
 		return (Actual) this;
 	}
 	
@@ -94,8 +95,6 @@ public abstract class JsfBaseComponent<Actual, Model extends JsfBaseComponentMod
 		model.getAjaxModels().add(ajax.getModel());
 		return (Actual) this;
 	}
-
-
 
 	/**
 	 * Can't be used together with the 'styleClass' builder method 

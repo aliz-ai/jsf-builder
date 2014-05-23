@@ -15,11 +15,12 @@ public class AbstractBackingView<Backing> {
 	private Class<Backing> backingClass;
 	private String backingName;
 	
-	protected JsfPanelGroup container = new JsfPanelGroup();
+	protected JsfPanelGroup container;
 
-	public AbstractBackingView(Class<Backing> backingClass, String backingName) {
+	public AbstractBackingView(Class<Backing> backingClass, String backingName, String id) {
 		this.backingClass = backingClass;
 		this.backingName = backingName;
+		container = new JsfPanelGroup(id);
 	}
 	
 	public UIComponent getComponent() {

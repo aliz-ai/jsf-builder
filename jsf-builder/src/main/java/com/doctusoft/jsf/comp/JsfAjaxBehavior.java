@@ -11,12 +11,20 @@ public class JsfAjaxBehavior {
 	@Getter
 	private JsfAjaxBehaviorModel model = new JsfAjaxBehaviorModel();
 	
+	public JsfAjaxBehavior execute(JsfBaseComponent<?, ?> component) {
+		return execute(component.getModel().getQualifiedId());
+	}
+	
 	public JsfAjaxBehavior execute(String execute) {
 		if (model.getExecute() == null) {
 			model.setExecute(new ArrayList<String>());
 		}
 		model.getExecute().add(execute);
 		return this;
+	}
+	
+	public JsfAjaxBehavior render(JsfBaseComponent<?, ?> component) {
+		return render(component.getModel().getQualifiedId());
 	}
 	
 	public JsfAjaxBehavior render(String render) {

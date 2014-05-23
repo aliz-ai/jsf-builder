@@ -10,7 +10,14 @@ import com.doctusoft.bean.binding.ValueBinding;
 @Getter @Setter
 public class JsfBaseComponentModel implements HasComponentModel {
 	
+	private JsfBaseComponentModel parent;
+	
 	private String id;
+	
+	/**
+	 * If the view is already embedded in one or many NamingContainers, set this value to ":nc1:nc2[...]" to make id resolution work properly 
+	 */
+	private String rootIdChain;
 	
 	private ValueBinding<String> onclick;
 	
@@ -36,5 +43,17 @@ public class JsfBaseComponentModel implements HasComponentModel {
 	public JsfBaseComponentModel getModel() {
 		return this;
 	}
+
+	public String getQualifiedId() {
+		String idPart = "";
+		if (parent != null) {
+			idPart = parent.getQualifiedId();
+		} else if (rootIdChain != null) {
+			idPart = rootIdChain;
+		}
+		idPart += ":" + id;
+		return idPart;
+	}
 	
+
 }

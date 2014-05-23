@@ -17,7 +17,7 @@ public class TestView extends AbstractBackingView<TestBacking> {
 	private JsfForm form;
 
 	public TestView() {
-		super(TestBacking.class, "TestBacking");
+		super(TestBacking.class, "TestBacking", "test");
 		form = new JsfForm("mainform").appendTo(container);
 		new JsfLabel("headerLabel", "Component showcase").withStyleClasses("heading").appendTo(form);
 		new JsfInputText("messageInput").bind(bindOnPresenter().get(TestBacking_._input)).appendTo(form);

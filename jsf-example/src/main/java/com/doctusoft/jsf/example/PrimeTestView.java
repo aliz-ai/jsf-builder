@@ -6,7 +6,7 @@ import com.doctusoft.primefaces.comp.PCommandButton;
 public class PrimeTestView extends AbstractBackingView<PrimeTestBacking> {
 	
 	public PrimeTestView() {
-		super(PrimeTestBacking.class, "PrimeTestBacking");
+		super(PrimeTestBacking.class, "PrimeTestBacking", "primetest");
 		new PCommandButton("testButton", "Test").appendTo(container);
 	}
 
