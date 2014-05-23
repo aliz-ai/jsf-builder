@@ -22,6 +22,9 @@ public class AjaxTestBacking {
 	
 	@Property
 	private String message;
+	
+	@Property
+	private String selectedValue;
 
 	public HtmlPanelGroup getView() {
 		if (view == null) {

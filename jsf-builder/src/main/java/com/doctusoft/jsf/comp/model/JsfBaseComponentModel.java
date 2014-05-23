@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import com.doctusoft.bean.binding.ValueBinding;
-import com.google.common.collect.Lists;
 
 @Getter @Setter
 public class JsfBaseComponentModel implements HasComponentModel {
@@ -29,9 +28,9 @@ public class JsfBaseComponentModel implements HasComponentModel {
 
 	private ValueBinding<Boolean> disabled;
 	
-	private List<JsfBaseComponentModel> children = Lists.newArrayList();
+	private List<JsfBaseComponentModel> children = null;
 	
-	private JsfAjaxBehaviorModel ajaxModel = null;
+	private List<JsfAjaxBehaviorModel> ajaxModels = null;
 
 	@Override
 	public JsfBaseComponentModel getModel() {

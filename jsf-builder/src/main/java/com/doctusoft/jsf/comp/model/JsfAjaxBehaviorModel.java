@@ -1,13 +1,17 @@
 package com.doctusoft.jsf.comp.model;
 
+import java.util.List;
+
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
 public class JsfAjaxBehaviorModel {
 	
-	private String execute;
+	private String event;
 	
-	private String render;
+	private List<String> execute;
+	
+	private List<String> render;
 
 }

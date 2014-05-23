@@ -3,9 +3,13 @@ package com.doctusoft.jsf.example;
 import com.doctusoft.jsf.AbstractBackingView;
 import com.doctusoft.jsf.comp.JsfAjaxBehavior;
 import com.doctusoft.jsf.comp.JsfButton;
+import com.doctusoft.jsf.comp.JsfCustomContent;
+import com.doctusoft.jsf.comp.JsfCustomElement;
 import com.doctusoft.jsf.comp.JsfForm;
 import com.doctusoft.jsf.comp.JsfInputText;
 import com.doctusoft.jsf.comp.JsfOutputText;
+import com.doctusoft.jsf.comp.JsfSelectOneMenu;
+import com.doctusoft.jsf.example.util.SelectUtils;
 
 public class AjaxTestView extends AbstractBackingView<AjaxTestBacking> {
 	
@@ -17,6 +21,14 @@ public class AjaxTestView extends AbstractBackingView<AjaxTestBacking> {
 				.action(presenterMethod(AjaxTestBacking_.__testMethod))
 				.appendTo(form));
 		new JsfOutputText("output").bind(bindOnPresenter().get(AjaxTestBacking_._message)).appendTo(form);
+		// custom ajax event example
+		new JsfCustomElement("hr").appendTo(form);
+		new JsfCustomContent("<h4>Ajax onchange example</h4>").appendTo(form);
+		new JsfSelectOneMenu<String>("testSelect").bind(bindOnPresenter().get(AjaxTestBacking_._selectedValue))
+				.withSelectItems(SelectUtils.stringSelectItems(new String[] {"first", "second", "third"}))
+				.withAjax(new JsfAjaxBehavior().withEvent("change"))
+				.appendTo(form);
+		new JsfOutputText("selectedValue").bind(bindOnPresenter().get(AjaxTestBacking_._selectedValue)).appendTo(form);
 	}
 
 }

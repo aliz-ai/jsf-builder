@@ -12,7 +12,7 @@ import lombok.Setter;
 import com.doctusoft.MethodRef;
 import com.doctusoft.Property;
 import com.doctusoft.jsf.comp.JsfSelectItem;
-import com.google.common.collect.Lists;
+import com.doctusoft.jsf.example.util.SelectUtils;
 
 @SessionScoped
 @ManagedBean(name="TestBacking")
@@ -27,7 +27,7 @@ public class TestBacking {
 	@Property
 	private String input = "";
 	
-	public static List<JsfSelectItem<PaymentType>> paymentTypeSelectItems = enumSelectItems(PaymentType.values());
+	public static List<JsfSelectItem<PaymentType>> paymentTypeSelectItems = SelectUtils.enumSelectItems(PaymentType.values());
 	
 	@Property
 	private PaymentType selectedPaymentType;
@@ -52,16 +52,4 @@ public class TestBacking {
 		Cash, MasterCard, Visa, Paypal
 	}
 
-	public static <EnumType extends Enum<EnumType>> List<JsfSelectItem<EnumType>> enumSelectItems(EnumType [] values) {
-		List<JsfSelectItem<EnumType>> items = Lists.newArrayList();
-		for (EnumType value : values) {
-			JsfSelectItem<EnumType> item = new JsfSelectItem<EnumType>();
-			String name = value.name();
-			item.setLabel(name);
-			item.setValue(value);
-			item.setId(name);
-			items.add(item);
-		}
-		return items;
-	}
 }

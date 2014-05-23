@@ -4,6 +4,8 @@ import com.doctusoft.jsf.AbstractRendererFactory;
 import com.doctusoft.jsf.comp.model.JsfBaseComponentModel;
 import com.doctusoft.jsf.comp.model.JsfButtonModel;
 import com.doctusoft.jsf.comp.model.JsfCheckboxModel;
+import com.doctusoft.jsf.comp.model.JsfCustomContentModel;
+import com.doctusoft.jsf.comp.model.JsfCustomElementModel;
 import com.doctusoft.jsf.comp.model.JsfFormModel;
 import com.doctusoft.jsf.comp.model.JsfInputTextModel;
 import com.doctusoft.jsf.comp.model.JsfLabelModel;
@@ -33,6 +35,10 @@ public class JsfRendererFactory extends AbstractRendererFactory {
 			return new JsfFormRenderer((JsfFormModel) model);
 		if (model instanceof JsfSelectModel)
 			return new JsfSelectOneMenuRenderer((JsfSelectModel) model);
+		if (model instanceof JsfCustomElementModel)
+			return new JsfCustomElementRenderer((JsfCustomElementModel) model);
+		if (model instanceof JsfCustomContentModel)
+			return new JsfCustomContentRenderer((JsfCustomContentModel) model);
 		return null;
 	}
 

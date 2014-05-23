@@ -1,5 +1,6 @@
 package com.doctusoft.jsf.comp;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -9,6 +10,7 @@ import lombok.Setter;
 import com.doctusoft.bean.binding.ConstantValueBinding;
 import com.doctusoft.bean.binding.ValueBinding;
 import com.doctusoft.jsf.comp.model.HasComponentModel;
+import com.doctusoft.jsf.comp.model.JsfAjaxBehaviorModel;
 import com.doctusoft.jsf.comp.model.JsfBaseComponentModel;
 import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
@@ -78,7 +80,18 @@ public abstract class JsfBaseComponent<Actual, Model extends JsfBaseComponentMod
 	}
 	
 	public Actual add(HasComponentModel component) {
+		if (model.getChildren() == null) {
+			model.setChildren(new ArrayList<JsfBaseComponentModel>());
+		}
 		model.getChildren().add(component.getModel());
+		return (Actual) this;
+	}
+	
+	public Actual withAjax(JsfAjaxBehavior ajax) {
+		if (model.getAjaxModels() == null) {
+			model.setAjaxModels(new ArrayList<JsfAjaxBehaviorModel>());
+		}
+		model.getAjaxModels().add(ajax.getModel());
 		return (Actual) this;
 	}
 

@@ -15,7 +15,9 @@ import com.doctusoft.bean.binding.ValueBinding;
 import com.doctusoft.jsf.AbstractRendererFactory;
 import com.doctusoft.jsf.RendererFactory;
 import com.doctusoft.jsf.binding.BindingWrapper;
+import com.doctusoft.jsf.comp.model.JsfAjaxBehaviorModel;
 import com.doctusoft.jsf.comp.model.JsfBaseComponentModel;
+import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableList;
 import com.sun.faces.facelets.tag.jsf.core.AjaxHandler;
 import com.sun.faces.renderkit.RenderKitUtils;
@@ -39,21 +41,26 @@ public class JsfBaseComponentRenderer<Component extends UIComponent> implements 
 		bind("styleClass", model.getStyleClass());
 		// render children
 		AbstractRendererFactory jsfRendererFactory = RendererFactory.get();
-		for (JsfBaseComponentModel child : model.getChildren()) {
-			 component.getChildren().add(jsfRendererFactory.getRenderer(child).getComponent());
+		if (model.getChildren() != null) {
+			for (JsfBaseComponentModel child : model.getChildren()) {
+				 component.getChildren().add(jsfRendererFactory.getRenderer(child).getComponent());
+			}
 		}
 		// handle ajax behaviour
-		if (model.getAjaxModel() != null) {
+		if (model.getAjaxModels() != null) {
 			installAjaxResourceIfNecessary();
-			AjaxBehavior ajaxBehavior = new AjaxBehavior();
-			ClientBehaviorHolder clientBehaviorHolder = (ClientBehaviorHolder) component;
-			String eventName = null;
-			if (eventName == null) {
-				eventName = clientBehaviorHolder.getDefaultEventName();
+			for (JsfAjaxBehaviorModel behaviorModel : model.getAjaxModels()) {
+				AjaxBehavior ajaxBehavior = new AjaxBehavior();
+				ClientBehaviorHolder clientBehaviorHolder = (ClientBehaviorHolder) component;
+				String eventName = behaviorModel.getEvent();
+				if (eventName == null) {
+					eventName = clientBehaviorHolder.getDefaultEventName();
+				}
+				ajaxBehavior.setExecute(Objects.firstNonNull(behaviorModel.getExecute(), ImmutableList.of("@form")));
+				ajaxBehavior.setRender(Objects.firstNonNull(behaviorModel.getRender(), ImmutableList.of("@form")));
+				clientBehaviorHolder.addClientBehavior(eventName, ajaxBehavior);
+				
 			}
-			ajaxBehavior.setExecute(ImmutableList.of("@form"));
-			ajaxBehavior.setRender(ImmutableList.of("@form"));
-			clientBehaviorHolder.addClientBehavior(eventName, ajaxBehavior);
 		}
 	}
 
