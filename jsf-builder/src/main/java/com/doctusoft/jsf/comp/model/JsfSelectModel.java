@@ -8,7 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public class JsfSelectModel extends JsfInputModel<String> {
+public abstract class JsfSelectModel extends JsfInputModel<String> {
 
 	private List<SelectItem> selectItems;
 }

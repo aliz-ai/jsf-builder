@@ -1,11 +1,13 @@
 package com.doctusoft.jsf.comp;
 
+import javax.faces.validator.Validator;
+
 import com.doctusoft.bean.binding.ConstantValueBinding;
 import com.doctusoft.bean.binding.ValueBinding;
 import com.doctusoft.jsf.comp.model.JsfInputModel;
 
 public abstract class JsfAbstractInput<Actual extends JsfAbstractInput, Value, Model extends JsfInputModel<Value>> extends
-		JsfBaseComponent<Actual, Model> {
+		JsfAbstractOutput<Actual, Value, Model> {
 	
 	public JsfAbstractInput(String id, Model model) {
 		super(id, model);
@@ -21,16 +23,6 @@ public abstract class JsfAbstractInput<Actual extends JsfAbstractInput, Value, M
 		return (Actual) this;
 	}
 
-	public Actual bind(ValueBinding<Value> binding) {
-		model.setValue(binding);
-		return (Actual) this;
-	}
-
-	public Actual withValue(Value value) {
-		model.setValue(new ConstantValueBinding<Value>(value));
-		return (Actual) this;
-	}
-	
 	public Actual withReadonly(boolean value) {
 		model.setReadonly(new ConstantValueBinding<Boolean>(value));
 		return (Actual) this;
@@ -60,5 +52,14 @@ public abstract class JsfAbstractInput<Actual extends JsfAbstractInput, Value, M
 		model.setRequiredMessage(value);
 		return (Actual) this;
 	}
-
+	
+	public Actual addValidator(Validator validator) {
+		model.getValidators().add(validator);
+		return (Actual) this;
+	}
+	
+	public Actual clearValidators() {
+		model.getValidators().clear();
+		return (Actual) this; 
+	}
 }

@@ -1,5 +1,6 @@
 package com.doctusoft.jsf.example;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -34,6 +35,12 @@ public class TestBacking {
 
 	@Property
 	private PaymentType selectedPaymentType2;
+	
+	@Property
+	private Date oneDate;
+	
+	@Property
+	private String inputHidden1;
 
 	public HtmlPanelGroup getView() {
 		if (view == null) {
@@ -48,7 +55,8 @@ public class TestBacking {
 
 	@MethodRef
 	public void testMethod() {
-		setMessage("selected payment type1: " + selectedPaymentType + "selected payment type2: " + selectedPaymentType2);
+		setMessage("selected payment type1: " + selectedPaymentType + ", selected payment type2: " + selectedPaymentType2 
+				+ ", oneDate:" + oneDate==null?"---" : oneDate.toString());
 	}
 
 	public enum PaymentType {

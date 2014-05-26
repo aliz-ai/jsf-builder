@@ -7,20 +7,14 @@ import com.doctusoft.jsf.comp.model.JsfCheckboxModel;
 import com.doctusoft.jsf.comp.model.JsfCustomContentModel;
 import com.doctusoft.jsf.comp.model.JsfCustomElementModel;
 import com.doctusoft.jsf.comp.model.JsfFormModel;
+import com.doctusoft.jsf.comp.model.JsfInputHiddenModel;
 import com.doctusoft.jsf.comp.model.JsfInputTextModel;
 import com.doctusoft.jsf.comp.model.JsfLabelModel;
 import com.doctusoft.jsf.comp.model.JsfOutputTextModel;
 import com.doctusoft.jsf.comp.model.JsfPanelGroupModel;
+import com.doctusoft.jsf.comp.model.JsfRepeatModel;
 import com.doctusoft.jsf.comp.model.JsfSelectOneMenuModel;
 import com.doctusoft.jsf.comp.model.JsfSelectOneRadioModel;
-import com.doctusoft.jsf.comp.model.JsfRepeatModel;
-<<<<<<< .mine
-import com.doctusoft.jsf.comp.model.JsfRepeatModel;
-import com.doctusoft.jsf.comp.model.JsfSelectModel;
-=======
-import com.doctusoft.jsf.comp.model.JsfSelectOneMenuModel;
-import com.doctusoft.jsf.comp.model.JsfSelectOneRadioModel;
->>>>>>> .theirs
 import com.doctusoft.jsf.comp.model.JsfTextareaModel;
 
 public class JsfRendererFactory extends AbstractRendererFactory {
@@ -42,7 +36,6 @@ public class JsfRendererFactory extends AbstractRendererFactory {
 			return new JsfOutputTextRenderer((JsfOutputTextModel) model);
 		if (model instanceof JsfFormModel)
 			return new JsfFormRenderer((JsfFormModel) model);
-
 		if (model instanceof JsfSelectOneMenuModel)
 			return new JsfSelectOneMenuRenderer((JsfSelectOneMenuModel) model);
 		if (model instanceof JsfSelectOneRadioModel)
@@ -53,6 +46,8 @@ public class JsfRendererFactory extends AbstractRendererFactory {
 			return new JsfCustomContentRenderer((JsfCustomContentModel) model);
 		if (model instanceof JsfRepeatModel)
 			return new JsfRepeatRenderer((JsfRepeatModel) model);
+		if (model instanceof JsfInputHiddenModel)
+			return new JsfInputHiddenRenderer((JsfInputHiddenModel) model);
 		return null;
 	}
 
