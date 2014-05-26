@@ -31,7 +31,10 @@ public class TestBacking {
 	
 	@Property
 	private PaymentType selectedPaymentType;
-	
+
+	@Property
+	private PaymentType selectedPaymentType2;
+
 	public HtmlPanelGroup getView() {
 		if (view == null) {
 			view = (HtmlPanelGroup) new TestView().getComponent();
@@ -45,7 +48,7 @@ public class TestBacking {
 
 	@MethodRef
 	public void testMethod() {
-		setMessage("selected payment type: " + selectedPaymentType);
+		setMessage("selected payment type1: " + selectedPaymentType + "selected payment type2: " + selectedPaymentType2);
 	}
 
 	public enum PaymentType {

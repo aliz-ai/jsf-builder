@@ -1,17 +1,13 @@
 package com.doctusoft.jsf.render;
 
-import javax.faces.component.UISelectItems;
 import javax.faces.component.html.HtmlSelectOneMenu;
 
-import com.doctusoft.jsf.comp.model.JsfSelectModel;
+import com.doctusoft.jsf.comp.model.JsfSelectOneMenuModel;
 
-public class JsfSelectOneMenuRenderer extends JsfInputRenderer<HtmlSelectOneMenu, JsfSelectModel, String> {
+public class JsfSelectOneMenuRenderer extends JsfSelectOneRenderer<HtmlSelectOneMenu, JsfSelectOneMenuModel> {
 	
-	public JsfSelectOneMenuRenderer(JsfSelectModel model) {
-		super(new HtmlSelectOneMenu(), model, String.class);
-		UISelectItems items = new UISelectItems();
-		items.setValue(model.getSelectItems());
-		component.getChildren().add(items);
+	public JsfSelectOneMenuRenderer(JsfSelectOneMenuModel model) {
+		super(new HtmlSelectOneMenu(), model);
 	}
 
 }

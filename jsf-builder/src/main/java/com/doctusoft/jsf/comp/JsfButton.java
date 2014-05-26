@@ -1,11 +1,8 @@
 package com.doctusoft.jsf.comp;
 
-import com.doctusoft.bean.binding.ConstantValueBinding;
-import com.doctusoft.bean.binding.EmptyEventHandler;
-import com.doctusoft.bean.binding.ValueBinding;
 import com.doctusoft.jsf.comp.model.JsfButtonModel;
 
-public class JsfButton extends JsfBaseComponent<JsfButton, JsfButtonModel> {
+public class JsfButton extends JsfAbstractButton<JsfButton, JsfButtonModel> {
 	
 	public JsfButton(String id) {
 		super(id, new JsfButtonModel());
@@ -16,19 +13,4 @@ public class JsfButton extends JsfBaseComponent<JsfButton, JsfButtonModel> {
 		withCaption(caption);
 	}
 	
-	public JsfButton bindCaption(ValueBinding<String> caption) {
-		model.setCaption(caption);
-		return this;
-	}
-	
-	public JsfButton withCaption(String caption) {
-		model.setCaption(new ConstantValueBinding<String>(caption));
-		return this;
-	}
-	
-	public JsfButton action(EmptyEventHandler handler) {
-		model.setAction(handler);
-		return this;
-	}
-
 }

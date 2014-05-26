@@ -7,6 +7,7 @@ import com.doctusoft.jsf.comp.JsfForm;
 import com.doctusoft.jsf.comp.JsfInputText;
 import com.doctusoft.jsf.comp.JsfLabel;
 import com.doctusoft.jsf.comp.JsfSelectOneMenu;
+import com.doctusoft.jsf.comp.JsfSelectOneRadio;
 import com.doctusoft.jsf.comp.JsfTextarea;
 import com.doctusoft.jsf.example.TestBacking.PaymentType;
 
@@ -28,6 +29,9 @@ public class TestView extends AbstractBackingView<TestBacking> {
 		new JsfSelectOneMenu<PaymentType>("paymentTypeSelect")
 			.bindValue(bindOnPresenter().get(TestBacking_._selectedPaymentType))
 			.withSelectItems(TestBacking.paymentTypeSelectItems).appendTo(form);
+		new JsfSelectOneRadio<PaymentType>("paymentTypeRadioSelect")
+		.bindValue(bindOnPresenter().get(TestBacking_._selectedPaymentType2))
+		.withSelectItems(TestBacking.paymentTypeSelectItems).appendTo(form);
 	}
 
 }
