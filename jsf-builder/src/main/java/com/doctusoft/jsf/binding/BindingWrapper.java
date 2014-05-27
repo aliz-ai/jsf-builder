@@ -37,7 +37,12 @@ public class BindingWrapper<T> extends ValueExpression {
 
 	@Override
 	public void setValue(ELContext arg0, Object value) {
-		binding.setValue((T) value);
+		try {
+			binding.setValue((T) value);
+		} catch (RuntimeException e) {
+			// TODO rewrap with some info
+			throw e;
+		}
 	}
 
 	@Override

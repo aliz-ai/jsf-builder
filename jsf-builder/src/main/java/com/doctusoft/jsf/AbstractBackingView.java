@@ -16,7 +16,7 @@ public class AbstractBackingView<Backing> {
 	private String backingName;
 	
 	protected JsfPanelGroup container;
-
+	
 	public AbstractBackingView(Class<Backing> backingClass, String backingName, String id) {
 		this.backingClass = backingClass;
 		this.backingName = backingName;
@@ -42,5 +42,13 @@ public class AbstractBackingView<Backing> {
 				methodRef.apply(ELRootBinding.resolve(backingClass, backingName));
 			}
 		};
+	}
+	
+	public UIComponent getInstance() {
+		return getComponent(); 
+	}
+	
+	public void setInstance(UIComponent instance) {
+		// do nothing;
 	}
 }

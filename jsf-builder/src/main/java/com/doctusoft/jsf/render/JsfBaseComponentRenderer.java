@@ -27,6 +27,11 @@ public class JsfBaseComponentRenderer<Component extends UIComponent> implements 
 	private JsfBaseComponentModel model;
 	protected Component component;
 
+	public JsfBaseComponentRenderer(String componentType, JsfBaseComponentModel model) {
+		this((Component) FacesContext.getCurrentInstance().getApplication().createComponent(componentType), model);
+	}
+
+	@Deprecated
 	public JsfBaseComponentRenderer(Component component, JsfBaseComponentModel model) {
 		this.component = component;
 		this.model = model;

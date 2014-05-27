@@ -41,18 +41,7 @@ public class TestBacking {
 	
 	@Property
 	private String inputHidden1;
-
-	public HtmlPanelGroup getView() {
-		if (view == null) {
-			view = (HtmlPanelGroup) new TestView().getComponent();
-		}
-		return view;
-	}
 	
-	public void setView(HtmlPanelGroup view) {
-		// do nothing
-	}
-
 	@MethodRef
 	public void testMethod() {
 		setMessage("selected payment type1: " + selectedPaymentType + ", selected payment type2: " + selectedPaymentType2 

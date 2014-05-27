@@ -10,7 +10,7 @@ import com.doctusoft.primefaces.comp.model.PCalendarModel;
 public class PCalendarRenderer extends JsfInputRenderer<Calendar, PCalendarModel, Date> {
 
 	public PCalendarRenderer(PCalendarModel model) {
-		super(new Calendar(), model, Date.class);
+		super(Calendar.COMPONENT_TYPE, model, Date.class);
 		component.setMode("popup");
 		bind("locale", model.getLocale());
 		bind("minDate", model.getMinDate(), Date.class);

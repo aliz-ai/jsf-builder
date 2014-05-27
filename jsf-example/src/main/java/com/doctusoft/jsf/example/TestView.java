@@ -1,5 +1,8 @@
 package com.doctusoft.jsf.example;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
 import com.doctusoft.jsf.AbstractBackingView;
 import com.doctusoft.jsf.comp.JsfButton;
 import com.doctusoft.jsf.comp.JsfCheckbox;
@@ -14,6 +17,8 @@ import com.doctusoft.jsf.example.TestBacking.PaymentType;
 import com.doctusoft.primefaces.comp.PCalendar;
 import com.doctusoft.primefaces.utils.CalendarDefaultConverter;
 
+@ViewScoped
+@ManagedBean(name="TestView")
 public class TestView extends AbstractBackingView<TestBacking> {
 	
 	private JsfLabel messageLabel;
