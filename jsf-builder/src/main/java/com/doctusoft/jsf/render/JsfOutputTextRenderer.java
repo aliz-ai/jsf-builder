@@ -8,6 +8,6 @@ public class JsfOutputTextRenderer extends JsfOutputRenderer<HtmlOutputText, Jsf
 {
 
 	public JsfOutputTextRenderer(JsfOutputTextModel model) {
-		super(new HtmlOutputText(), model, String.class);
+		super(HtmlOutputText.COMPONENT_TYPE, model, String.class);
 	}
 }

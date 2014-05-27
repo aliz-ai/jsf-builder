@@ -7,7 +7,7 @@ import com.doctusoft.jsf.comp.model.JsfInputHiddenModel;
 public class JsfInputHiddenRenderer extends JsfInputRenderer<HtmlInputHidden, JsfInputHiddenModel, String> {
 
 	public JsfInputHiddenRenderer(JsfInputHiddenModel model) {
-		super(new HtmlInputHidden(), model, String.class);
+		super(HtmlInputHidden.COMPONENT_TYPE, model, String.class);
 	}
 
 }

@@ -10,8 +10,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-@FacesComponent(value = "jsf-builder")
+@FacesComponent(value = CustomContentComponent.COMPONENT_TYPE)
 public class CustomContentComponent extends UIComponentBase {
+	
+	public static final String COMPONENT_TYPE = "com.doctusoft.jsf-builder.CustomContent";
 
 	private String content; 
 	

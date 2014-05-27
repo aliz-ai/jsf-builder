@@ -18,16 +18,4 @@ public class JsfInputRenderer<Component extends UIInput, Model extends JsfInputM
 		}
 	}
 
-	@Deprecated
-	public JsfInputRenderer(Component component, Model model, Class<Value> valueClass) {
-		super(component, model, valueClass);
-		bind("required", model.getRequired(), Boolean.class);
-		bind("requiredMessage", model.getRequiredMessage());
-		bind("readonly", model.getReadonly(), Boolean.class);
-		component.setImmediate(model.isImmediate());
-		for (Validator validator : model.getValidators()) {
-			component.addValidator(validator);
-		}
-	}
-
 }

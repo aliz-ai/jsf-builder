@@ -7,6 +7,6 @@ import com.doctusoft.jsf.comp.model.JsfCheckboxModel;
 public class JsfCheckboxRenderer extends JsfInputRenderer<HtmlSelectBooleanCheckbox, JsfCheckboxModel, Boolean> {
 
 	public JsfCheckboxRenderer(JsfCheckboxModel model) {
-		super(new HtmlSelectBooleanCheckbox(), model, Boolean.class);
+		super(HtmlSelectBooleanCheckbox.COMPONENT_TYPE, model, Boolean.class);
 	}
 }

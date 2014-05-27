@@ -9,7 +9,7 @@ import com.doctusoft.primefaces.comp.model.PCommandButtonModel;
 public class PCommandButtonRenderer extends JsfButtonRenderer {
 	
 	public PCommandButtonRenderer(PCommandButtonModel model) {
-		super(new CommandButton(), model);
+		super(CommandButton.COMPONENT_TYPE, model);
 		// rendering ajax actions cannot be reused, because these properties are not exposed on a reusable interface by primefaces
 		CommandButton button = (CommandButton) component;
 		PAjaxActionModel ajax = model.getAjaxActionModel();

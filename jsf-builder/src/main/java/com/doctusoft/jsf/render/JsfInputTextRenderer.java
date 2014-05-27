@@ -7,7 +7,7 @@ import com.doctusoft.jsf.comp.model.JsfInputTextModel;
 public class JsfInputTextRenderer extends JsfInputRenderer<HtmlInputText, JsfInputTextModel, String> {
 
 	public JsfInputTextRenderer(JsfInputTextModel model) {
-		super(new HtmlInputText(), model, String.class);
+		super(HtmlInputText.COMPONENT_TYPE, model, String.class);
 		bind("maxlength", model.getMaxLength(), Integer.class);
 	}
 }

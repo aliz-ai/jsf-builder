@@ -6,7 +6,7 @@ import com.doctusoft.jsf.custom.CustomElementComponent;
 public class JsfCustomElementRenderer extends JsfBaseComponentRenderer<CustomElementComponent> {
 	
 	public JsfCustomElementRenderer(JsfCustomElementModel model) {
-		super(new CustomElementComponent(), model);
+		super(CustomElementComponent.COMPONENT_TYPE, model);
 		component.setElementName(model.getElementName());
 	}
 

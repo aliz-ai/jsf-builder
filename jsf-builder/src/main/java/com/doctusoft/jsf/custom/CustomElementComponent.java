@@ -13,8 +13,10 @@ import com.google.common.base.Strings;
 
 @Getter
 @Setter
-@FacesComponent(value = "jsf-builder")
+@FacesComponent(value = CustomElementComponent.COMPONENT_TYPE)
 public class CustomElementComponent extends UIComponentBase {
+	
+	public static final String COMPONENT_TYPE = "com.doctusoft.jsf-builder.CustomElement";
 	
 	private String id;
 	private String styleClass;

@@ -12,11 +12,4 @@ public class JsfOutputRenderer<Component extends UIOutput, Model extends JsfOutp
 		component.setConverter(model.getConverter());
 	}
 
-	@Deprecated
-	public JsfOutputRenderer(Component component, Model model, Class<Value> valueClass) {
-		super(component, model);
-		bind("value", model.getValue(), valueClass);
-		component.setConverter(model.getConverter());
-	}
-
 }

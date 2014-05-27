@@ -1,5 +1,8 @@
 package com.doctusoft.jsf.render;
 
+import javax.faces.application.Application;
+import javax.faces.context.FacesContext;
+
 import com.doctusoft.jsf.AbstractRendererFactory;
 import com.doctusoft.jsf.comp.model.JsfBaseComponentModel;
 import com.doctusoft.jsf.comp.model.JsfButtonModel;
@@ -16,8 +19,18 @@ import com.doctusoft.jsf.comp.model.JsfRepeatModel;
 import com.doctusoft.jsf.comp.model.JsfSelectOneMenuModel;
 import com.doctusoft.jsf.comp.model.JsfSelectOneRadioModel;
 import com.doctusoft.jsf.comp.model.JsfTextareaModel;
+import com.doctusoft.jsf.custom.CustomContentComponent;
+import com.doctusoft.jsf.custom.CustomElementComponent;
 
 public class JsfRendererFactory extends AbstractRendererFactory {
+	
+	public JsfRendererFactory() {
+		// register custom components
+		Application app = FacesContext.getCurrentInstance().getApplication();
+		app.addComponent(CustomElementComponent.COMPONENT_TYPE, CustomElementComponent.class.getName());
+		app.addComponent(CustomContentComponent.COMPONENT_TYPE, CustomContentComponent.class.getName());
+	}
+	
 	
 	public Renderer resolveRenderer(JsfBaseComponentModel model) {
 		if (model instanceof JsfLabelModel)

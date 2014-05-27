@@ -7,7 +7,7 @@ import com.doctusoft.jsf.comp.model.JsfLabelModel;
 public class JsfLabelRenderer extends JsfOutputRenderer<HtmlOutputLabel, JsfLabelModel, String>  {
 	
 	public JsfLabelRenderer(JsfLabelModel model) {
-		super(new HtmlOutputLabel(), model, String.class);
+		super(HtmlOutputLabel.COMPONENT_TYPE, model, String.class);
 		bind("value", model.getLabel());
 	}
 

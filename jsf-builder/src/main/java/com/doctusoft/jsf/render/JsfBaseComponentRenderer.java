@@ -28,12 +28,7 @@ public class JsfBaseComponentRenderer<Component extends UIComponent> implements 
 	protected Component component;
 
 	public JsfBaseComponentRenderer(String componentType, JsfBaseComponentModel model) {
-		this((Component) FacesContext.getCurrentInstance().getApplication().createComponent(componentType), model);
-	}
-
-	@Deprecated
-	public JsfBaseComponentRenderer(Component component, JsfBaseComponentModel model) {
-		this.component = component;
+		component = (Component) FacesContext.getCurrentInstance().getApplication().createComponent(componentType);
 		this.model = model;
 		component.setId(model.getId());
 		bind("onclick", model.getOnclick());

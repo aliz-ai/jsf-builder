@@ -7,11 +7,11 @@ import com.doctusoft.jsf.comp.model.JsfButtonModel;
 public class JsfButtonRenderer extends JsfBaseComponentRenderer<HtmlCommandButton> {
 	
 	public JsfButtonRenderer(JsfButtonModel model) {
-		this(new HtmlCommandButton(), model);
+		this(HtmlCommandButton.COMPONENT_TYPE, model);
 	}
 
-	public JsfButtonRenderer(HtmlCommandButton component, JsfButtonModel model) {
-		super(component, model);
+	public JsfButtonRenderer(String componentType, JsfButtonModel model) {
+		super(componentType, model);
 		bind("value", model.getCaption());
 		bindCommand(model.getAction());
 	}

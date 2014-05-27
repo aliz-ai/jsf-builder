@@ -10,7 +10,7 @@ import com.sun.faces.facelets.component.UIRepeat;
 public class JsfRepeatRenderer extends JsfBaseComponentRenderer<UIRepeat> {
 	
 	public JsfRepeatRenderer(JsfRepeatModel model) {
-		super(new UIRepeat(), model);
+		super(UIRepeat.COMPONENT_TYPE, model);
 		component.setVar(model.getVar());
 		component.setVarStatus(model.getVarStatus());
 		bind("value", (ValueBinding) model.getItems(), List.class);
