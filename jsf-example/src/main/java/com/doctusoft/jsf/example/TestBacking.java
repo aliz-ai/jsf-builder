@@ -1,11 +1,9 @@
 package com.doctusoft.jsf.example;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.component.html.HtmlPanelGroup;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -19,8 +17,6 @@ import com.doctusoft.jsf.example.util.SelectUtils;
 @ManagedBean(name="TestBacking")
 @Getter @Setter
 public class TestBacking {
-	
-	private HtmlPanelGroup view = null;
 	
 	@Property
 	private String message = "hello world";
@@ -37,15 +33,11 @@ public class TestBacking {
 	private PaymentType selectedPaymentType2;
 	
 	@Property
-	private Date oneDate;
-	
-	@Property
 	private String inputHidden1;
 	
 	@MethodRef
 	public void testMethod() {
-		setMessage("selected payment type1: " + selectedPaymentType + ", selected payment type2: " + selectedPaymentType2 
-				+ ", oneDate:" + oneDate==null?"---" : oneDate.toString());
+		setMessage("selected payment type1: " + selectedPaymentType + ", selected payment type2: " + selectedPaymentType2);
 	}
 
 	public enum PaymentType {

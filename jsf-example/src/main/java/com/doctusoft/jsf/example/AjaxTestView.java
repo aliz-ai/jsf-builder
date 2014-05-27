@@ -1,5 +1,8 @@
 package com.doctusoft.jsf.example;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
 import com.doctusoft.jsf.AbstractBackingView;
 import com.doctusoft.jsf.comp.JsfAjaxBehavior;
 import com.doctusoft.jsf.comp.JsfButton;
@@ -12,6 +15,8 @@ import com.doctusoft.jsf.comp.JsfPanelGroup;
 import com.doctusoft.jsf.comp.JsfSelectOneMenu;
 import com.doctusoft.jsf.example.util.SelectUtils;
 
+@ViewScoped
+@ManagedBean(name="AjaxTestView")
 public class AjaxTestView extends AbstractBackingView<AjaxTestBacking> {
 	
 	public AjaxTestView() {

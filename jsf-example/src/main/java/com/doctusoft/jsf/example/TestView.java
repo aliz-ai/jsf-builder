@@ -14,8 +14,6 @@ import com.doctusoft.jsf.comp.JsfSelectOneMenu;
 import com.doctusoft.jsf.comp.JsfSelectOneRadio;
 import com.doctusoft.jsf.comp.JsfTextarea;
 import com.doctusoft.jsf.example.TestBacking.PaymentType;
-import com.doctusoft.primefaces.comp.PCalendar;
-import com.doctusoft.primefaces.utils.CalendarDefaultConverter;
 
 @ViewScoped
 @ManagedBean(name="TestView")
@@ -42,16 +40,6 @@ public class TestView extends AbstractBackingView<TestBacking> {
 		new JsfSelectOneRadio<PaymentType>("paymentTypeRadioSelect")
 		.bindValue(bindOnPresenter().get(TestBacking_._selectedPaymentType2))
 		.withSelectItems(TestBacking.paymentTypeSelectItems).appendTo(form);
-		
-		new PCalendar("oneDate").bind(bindOnPresenter().get(TestBacking_._oneDate))
-			.withRequired(true)
-			.withRequiredMessage("Kötelező!!!")
-			.withLocale("hu")
-			.withPattern("yyyy.MM.dd.")
-			.withWidgetVar("oneDateWidget")
-			.withNavigator(true)
-			.withConverter(new CalendarDefaultConverter())
-			.appendTo(form);
 		
 		new JsfInputHidden("inputHidden1").bind(bindOnPresenter().get(TestBacking_._inputHidden1)).withValue("300").appendTo(form);
 	}

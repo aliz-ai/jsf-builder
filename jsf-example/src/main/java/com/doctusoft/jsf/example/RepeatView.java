@@ -1,5 +1,8 @@
 package com.doctusoft.jsf.example;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
 import com.doctusoft.jsf.AbstractBackingView;
 import com.doctusoft.jsf.comp.JsfAjaxBehavior;
 import com.doctusoft.jsf.comp.JsfButton;
@@ -9,6 +12,8 @@ import com.doctusoft.jsf.comp.JsfInputText;
 import com.doctusoft.jsf.comp.JsfOutputText;
 import com.doctusoft.jsf.comp.JsfRepeat;
 
+@ViewScoped
+@ManagedBean(name="RepeatView")
 public class RepeatView extends AbstractBackingView<RepeatBacking> {
 	
 	public RepeatView() {
