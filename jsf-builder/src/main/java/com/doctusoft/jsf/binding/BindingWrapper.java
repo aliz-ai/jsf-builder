@@ -3,6 +3,7 @@ package com.doctusoft.jsf.binding;
 import javax.el.ELContext;
 import javax.el.ValueExpression;
 
+import com.doctusoft.bean.binding.ConstantValueBindingAssignedException;
 import com.doctusoft.bean.binding.ValueBinding;
 
 public class BindingWrapper<T> extends ValueExpression {
@@ -39,9 +40,11 @@ public class BindingWrapper<T> extends ValueExpression {
 	public void setValue(ELContext arg0, Object value) {
 		try {
 			binding.setValue((T) value);
+		} catch (ConstantValueBindingAssignedException e) {
+			// this is a readonly binding
+			// fail silently, this is not an error
 		} catch (RuntimeException e) {
-			// TODO rewrap with some info
-			throw e;
+			throw new RuntimeException("Failed to assign value " + value + " to expression: " + binding);
 		}
 	}
 
