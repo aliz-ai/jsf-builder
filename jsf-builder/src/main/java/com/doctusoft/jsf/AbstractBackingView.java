@@ -34,7 +34,7 @@ public class AbstractBackingView<Backing> {
 	protected ValueBindingBuilder<Backing> bindOnPresenter() {
 		return JsfBindings.on(backingClass, backingName);
 	}
-
+	
 	protected EmptyEventHandler presenterMethod(final ClassMethodReference0<Backing, Void> methodRef) {
 		return new EmptyEventHandler() {
 			@Override

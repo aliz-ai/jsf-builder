@@ -24,6 +24,8 @@ public class TestBacking {
 	@Property
 	private String input = "";
 	
+	private DataHolder dataHolder = new DataHolder();
+	
 	public static List<JsfSelectItem<PaymentType>> paymentTypeSelectItems = SelectUtils.enumSelectItems(PaymentType.values());
 	
 	@Property

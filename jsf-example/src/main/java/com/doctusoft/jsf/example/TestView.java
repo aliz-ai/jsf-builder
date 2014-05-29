@@ -4,8 +4,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import com.doctusoft.jsf.AbstractBackingView;
+import com.doctusoft.jsf.binding.BackingNamingConvention;
+import com.doctusoft.jsf.binding.JsfBindings;
 import com.doctusoft.jsf.comp.JsfButton;
 import com.doctusoft.jsf.comp.JsfCheckbox;
+import com.doctusoft.jsf.comp.JsfCustomElement;
 import com.doctusoft.jsf.comp.JsfForm;
 import com.doctusoft.jsf.comp.JsfInputHidden;
 import com.doctusoft.jsf.comp.JsfInputText;
@@ -42,6 +45,9 @@ public class TestView extends AbstractBackingView<TestBacking> {
 		.withSelectItems(TestBacking.paymentTypeSelectItems).appendTo(form);
 		
 		new JsfInputHidden("inputHidden1").bind(bindOnPresenter().get(TestBacking_._inputHidden1)).withValue("300").appendTo(form);
+		JsfCustomElement div = new JsfCustomElement("div").appendTo(form);
+		new JsfInputText("hprop1").bind(JsfBindings.on(DataHolder.class, "TestBacking.dataHolder").get(DataHolder_._prop1)).appendTo(div);
+		new JsfInputText("hprop2").bind(JsfBindings.on(DataHolder.class, "TestBacking.dataHolder").get(DataHolder_._prop2)).appendTo(div);
 	}
 
 }
