@@ -31,7 +31,7 @@ public class CustomElementComponent extends UIComponentBase {
 	protected void append(final FacesContext context, final String appendValue) throws IOException {
 		context.getResponseWriter().append(appendValue);
 	}
-	
+
 	@Override
 	public void encodeBegin(final FacesContext context) throws IOException {
 		StringBuilder builder = new StringBuilder();

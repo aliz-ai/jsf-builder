@@ -37,6 +37,9 @@ public class TestBacking {
 	@Property
 	private String inputHidden1;
 	
+	@Property
+	private String val22;
+	
 	@MethodRef
 	public void testMethod() {
 		setMessage("selected payment type1: " + selectedPaymentType + ", selected payment type2: " + selectedPaymentType2);

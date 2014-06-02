@@ -3,6 +3,7 @@ package com.doctusoft.jsf.example;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import com.doctusoft.bean.binding.ConstantValueBinding;
 import com.doctusoft.jsf.AbstractBackingView;
 import com.doctusoft.jsf.binding.BackingNamingConvention;
 import com.doctusoft.jsf.binding.JsfBindings;
@@ -48,6 +49,15 @@ public class TestView extends AbstractBackingView<TestBacking> {
 		JsfCustomElement div = new JsfCustomElement("div").appendTo(form);
 		new JsfInputText("hprop1").bind(JsfBindings.on(DataHolder.class, "TestBacking.dataHolder").get(DataHolder_._prop1)).appendTo(div);
 		new JsfInputText("hprop2").bind(JsfBindings.on(DataHolder.class, "TestBacking.dataHolder").get(DataHolder_._prop2)).appendTo(div);
+		
+		JsfCustomElement div2 = new JsfCustomElement("div", "div2").withStyleClasses("row").appendTo(form);
+		JsfCustomElement div21 = new JsfCustomElement("div", "div21").withStyleClasses("span2").appendTo(div2);
+		   new JsfLabel("lbl21", "label21").withStyle("background-color:yellow;").appendTo(div21);
+		JsfCustomElement div22 = new JsfCustomElement("div", "div22").withStyleClasses("span3").appendTo(div2);
+			new JsfInputText("tb22").bind(bindOnPresenter().get(TestBacking_._val22)).appendTo(div22);
+		JsfCustomElement div23 = new JsfCustomElement("div", "div23").withStyleClasses("span6").appendTo(div2);
+		   new JsfLabel("lbl23", "label23").withStyle("background-color:lightgreen;").appendTo(div23);
+		
 	}
 
 }
