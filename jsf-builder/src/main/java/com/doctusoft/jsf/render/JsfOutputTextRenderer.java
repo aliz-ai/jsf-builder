@@ -9,5 +9,6 @@ public class JsfOutputTextRenderer extends JsfOutputRenderer<HtmlOutputText, Jsf
 
 	public JsfOutputTextRenderer(JsfOutputTextModel model) {
 		super(HtmlOutputText.COMPONENT_TYPE, model, String.class);
+		bind("escape", model.getEscape(), Boolean.class);
 	}
 }

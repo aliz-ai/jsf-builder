@@ -39,7 +39,10 @@ public class TestBacking {
 	
 	@Property
 	private String val22;
-	
+
+	@Property
+	private String valpit;
+
 	@MethodRef
 	public void testMethod() {
 		setMessage("selected payment type1: " + selectedPaymentType + ", selected payment type2: " + selectedPaymentType2);

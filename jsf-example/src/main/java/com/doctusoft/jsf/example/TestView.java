@@ -18,6 +18,7 @@ import com.doctusoft.jsf.comp.JsfSelectOneMenu;
 import com.doctusoft.jsf.comp.JsfSelectOneRadio;
 import com.doctusoft.jsf.comp.JsfTextarea;
 import com.doctusoft.jsf.example.TestBacking.PaymentType;
+import com.doctusoft.primefaces.comp.PInputText;
 
 @ViewScoped
 @ManagedBean(name="TestView")
@@ -58,6 +59,7 @@ public class TestView extends AbstractBackingView<TestBacking> {
 		JsfCustomElement div23 = new JsfCustomElement("div", "div23").withStyleClasses("span6").appendTo(div2);
 		   new JsfLabel("lbl23", "label23").withStyle("background-color:lightgreen;").appendTo(div23);
 		
+		PInputText valpit = new PInputText("valpit").withDisabled(false).withMaxLength(10).withRequired(true).withRequiredMessage("ÉÉÉÓÓÓÉÉÉÓÓÓ!").appendTo(form);
 	}
 
 }

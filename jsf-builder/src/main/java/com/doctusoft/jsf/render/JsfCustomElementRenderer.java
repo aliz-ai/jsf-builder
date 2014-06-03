@@ -2,7 +2,6 @@ package com.doctusoft.jsf.render;
 
 import com.doctusoft.jsf.comp.model.JsfCustomElementModel;
 import com.doctusoft.jsf.custom.CustomElementComponent;
-import com.google.common.base.Strings;
 
 public class JsfCustomElementRenderer extends JsfBaseComponentRenderer<CustomElementComponent> {
 	

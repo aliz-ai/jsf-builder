@@ -19,5 +19,15 @@ public class JsfOutputText extends JsfBaseComponent<JsfOutputText, JsfOutputText
 		model.setValue(new ConstantValueBinding<String>(value));
 		return this;
 	}
+
+	public JsfOutputText escape(ValueBinding<Boolean> binding) {
+		model.setEscape(binding);
+		return this;
+	}
+
+	public JsfOutputText withEscape(boolean value) {
+		return escape(new ConstantValueBinding<Boolean>(value));
+	}
+	
 	
 }
