@@ -14,6 +14,7 @@ import com.doctusoft.jsf.comp.JsfForm;
 import com.doctusoft.jsf.comp.JsfInputHidden;
 import com.doctusoft.jsf.comp.JsfInputText;
 import com.doctusoft.jsf.comp.JsfLabel;
+import com.doctusoft.jsf.comp.JsfPanelGroup;
 import com.doctusoft.jsf.comp.JsfSelectOneMenu;
 import com.doctusoft.jsf.comp.JsfSelectOneRadio;
 import com.doctusoft.jsf.comp.JsfTextarea;
@@ -60,6 +61,8 @@ public class TestView extends AbstractBackingView<TestBacking> {
 		   new JsfLabel("lbl23", "label23").withStyle("background-color:lightgreen;").appendTo(div23);
 		
 		PInputText valpit = new PInputText("valpit").withDisabled(false).withMaxLength(10).withRequired(true).withRequiredMessage("ÉÉÉÓÓÓÉÉÉÓÓÓ!").appendTo(form);
+
+		JsfPanelGroup pg1 = new JsfPanelGroup("pg1").withStyleClasses("panelGroup").rendered(new ConstantValueBinding<Boolean>(Boolean.TRUE)).appendTo(form);
 	}
 
 }

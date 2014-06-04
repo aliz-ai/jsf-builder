@@ -13,6 +13,7 @@ import com.doctusoft.jsf.comp.model.JsfFormModel;
 import com.doctusoft.jsf.comp.model.JsfInputHiddenModel;
 import com.doctusoft.jsf.comp.model.JsfInputTextModel;
 import com.doctusoft.jsf.comp.model.JsfLabelModel;
+import com.doctusoft.jsf.comp.model.JsfMessageModel;
 import com.doctusoft.jsf.comp.model.JsfOutputTextModel;
 import com.doctusoft.jsf.comp.model.JsfPanelGroupModel;
 import com.doctusoft.jsf.comp.model.JsfRepeatModel;
@@ -61,6 +62,8 @@ public class JsfRendererFactory extends AbstractRendererFactory {
 			return new JsfRepeatRenderer((JsfRepeatModel) model);
 		if (model instanceof JsfInputHiddenModel)
 			return new JsfInputHiddenRenderer((JsfInputHiddenModel) model);
+		if (model instanceof JsfMessageModel)
+			return new JsfMessageRenderer((JsfMessageModel) model);
 		return null;
 	}
 

@@ -8,6 +8,7 @@ public class JsfPanelGroupRenderer extends JsfBaseComponentRenderer<HtmlPanelGro
 	
 	public JsfPanelGroupRenderer(JsfPanelGroupModel model) {
 		super(HtmlPanelGroup.COMPONENT_TYPE, model);
+		bind("rendered", model.getRendered(), Boolean.class);
 	}
 
 }
