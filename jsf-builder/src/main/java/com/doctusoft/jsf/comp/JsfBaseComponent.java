@@ -92,7 +92,15 @@ public abstract class JsfBaseComponent<Actual, Model extends JsfBaseComponentMod
 		component.getModel().setParent(model);
 		return (Actual) this;
 	}
-	
+
+	public Actual remove(HasComponentModel component) {
+		if (model.getChildren() != null) {
+			model.getChildren().remove(component.getModel());
+			component.getModel().setParent(null);
+		}
+		return (Actual) this;
+	}
+
 	public Actual withAjax(JsfAjaxBehavior ajax) {
 		if (model.getAjaxModels() == null) {
 			model.setAjaxModels(new ArrayList<JsfAjaxBehaviorModel>());
