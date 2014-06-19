@@ -11,6 +11,8 @@ import lombok.Setter;
 import com.doctusoft.MethodRef;
 import com.doctusoft.Property;
 import com.doctusoft.jsf.comp.JsfSelectItem;
+import com.doctusoft.jsf.example.model.DataHolder;
+import com.doctusoft.jsf.example.model.OrszagVO;
 import com.doctusoft.jsf.example.util.SelectUtils;
 
 @SessionScoped
@@ -27,12 +29,19 @@ public class TestBacking {
 	private DataHolder dataHolder = new DataHolder();
 	
 	public static List<JsfSelectItem<PaymentType>> paymentTypeSelectItems = SelectUtils.enumSelectItems(PaymentType.values());
+	public static List<JsfSelectItem<OrszagVO>> orszagSelectItems = SelectUtils.orszagSelectItems(OrszagVO.orszagok());
 	
 	@Property
-	private PaymentType selectedPaymentType;
+	private OrszagVO orszag1;
 
 	@Property
-	private PaymentType selectedPaymentType2;
+	private OrszagVO orszag2;
+
+	@Property
+	private PaymentType selectedPaymentType = PaymentType.Visa;
+
+	@Property
+	private PaymentType selectedPaymentType2 = PaymentType.MasterCard;
 	
 	@Property
 	private String inputHidden1;
@@ -45,9 +54,23 @@ public class TestBacking {
 
 	@MethodRef
 	public void testMethod() {
-		setMessage("selected payment type1: " + selectedPaymentType + ", selected payment type2: " + selectedPaymentType2);
+		StringBuilder sb = new StringBuilder();
+		if (selectedPaymentType != null)
+			sb.append(" paymentType:" + selectedPaymentType.name());
+		if (selectedPaymentType2 != null)
+			sb.append(" paymentType2:" + selectedPaymentType2.name());
+		if (orszag1 != null)
+			sb.append(" orszag1:" + orszag1.getNev());
+		if (orszag2 != null)
+			sb.append(" orszag2:" + orszag2.getNev());
+		setMessage(sb.toString());
 	}
 
+	@Property(readonly = true)
+	public boolean isPGVisible() {
+		return PaymentType.Paypal.equals(selectedPaymentType2);
+	}
+	
 	public enum PaymentType {
 		Cash, MasterCard, Visa, Paypal
 	}

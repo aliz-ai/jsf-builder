@@ -1,6 +1,7 @@
 package com.doctusoft.jsf.custom;
 
 import java.io.IOException;
+import java.util.Map;
 
 import javax.faces.component.FacesComponent;
 import javax.faces.component.UIComponentBase;
@@ -9,7 +10,9 @@ import javax.faces.context.FacesContext;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.doctusoft.bean.binding.ValueBinding;
 import com.google.common.base.Strings;
+import com.google.common.collect.Maps;
 
 @Getter
 @Setter
@@ -23,6 +26,8 @@ public class CustomElementComponent extends UIComponentBase {
 	private String style;
 	private String text;
 	private String elementName;
+	private Map<String, String> additionalAttributes = Maps.newHashMap();
+	private Map<String, ValueBinding<?>> additionalAttributesWithBinding = Maps.newHashMap();
 	
 	public CustomElementComponent() {
 		super();
@@ -47,6 +52,14 @@ public class CustomElementComponent extends UIComponentBase {
 		
 		if (!Strings.isNullOrEmpty(style)) {
 			builder.append(" style=\"" + style + "\"");
+		}
+		
+		for (String name : getAdditionalAttributes().keySet()) {
+			builder.append(" " + name + "=\"" + getAdditionalAttributes().get(name) + "\"");
+		}
+			
+		for (String name : getAdditionalAttributesWithBinding().keySet()) {
+			builder.append(" " + name + "=\"" +  getAdditionalAttributesWithBinding().get(name).getValue()  + "\"");
 		}
 		
 		builder.append(">");

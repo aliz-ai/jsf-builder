@@ -1,8 +1,10 @@
 package com.doctusoft.jsf.example.util;
 
+import java.util.Collection;
 import java.util.List;
 
 import com.doctusoft.jsf.comp.JsfSelectItem;
+import com.doctusoft.jsf.example.model.OrszagVO;
 import com.google.common.collect.Lists;
 
 public class SelectUtils {
@@ -32,4 +34,17 @@ public class SelectUtils {
 		}
 		return items;
 	}
+	
+	public static List<JsfSelectItem<OrszagVO>> orszagSelectItems( Collection<OrszagVO> values) {
+		List<JsfSelectItem<OrszagVO>> items = Lists.newArrayList();
+		for (OrszagVO oneItem : values) {
+			JsfSelectItem<OrszagVO> item = new JsfSelectItem<OrszagVO>();
+			item.setId( oneItem.getAzonosito() );
+			item.setLabel( oneItem.getNev() );
+			item.setValue( oneItem );
+			items.add( item );
+		}
+		return items;
+	}
+
 }

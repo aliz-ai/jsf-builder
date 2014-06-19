@@ -51,4 +51,5 @@ public class AbstractBackingView<Backing> {
 	public void setInstance(UIComponent instance) {
 		// do nothing;
 	}
+	
 }

@@ -1,4 +1,4 @@
-package com.doctusoft.jsf.example;
+package com.doctusoft.jsf.example.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

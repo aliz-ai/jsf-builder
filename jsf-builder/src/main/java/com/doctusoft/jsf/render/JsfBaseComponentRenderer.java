@@ -83,7 +83,7 @@ public class JsfBaseComponentRenderer<Component extends UIComponent> implements 
 			component.setValueExpression(property, new BindingWrapper<String>(binding, String.class));
 		}
 	}
-	
+
 	public void bindCommand(final EmptyEventHandler handler) {
 		if (handler == null)
 			return;

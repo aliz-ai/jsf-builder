@@ -14,7 +14,7 @@ public class JsfPanelGroup extends JsfBaseComponent<JsfPanelGroup, JsfPanelGroup
 		model.setRendered(binding);
 		return this;
 	}
-	
+
 	public JsfPanelGroup withRendered(boolean value) {
 		return rendered(new ConstantValueBinding<Boolean>(value));
 	}
