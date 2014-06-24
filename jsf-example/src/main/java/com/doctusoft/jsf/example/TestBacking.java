@@ -29,7 +29,7 @@ public class TestBacking {
 	private DataHolder dataHolder = new DataHolder();
 	
 	public static List<JsfSelectItem<PaymentType>> paymentTypeSelectItems = SelectUtils.enumSelectItems(PaymentType.values());
-	public static List<JsfSelectItem<CountryVO>> countrySelectItems = SelectUtils.orszagSelectItems(CountryVO.countries());
+	public static List<JsfSelectItem<CountryVO>> countrySelectItems = SelectUtils.countrySelectItems(CountryVO.countries());
 	
 	@Property
 	private CountryVO country;

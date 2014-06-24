@@ -20,7 +20,7 @@ public abstract class JsfSelectOne<Value, Actual extends JsfSelectOne<?,?>> exte
 	}
 
 	/**
-	 * This allow you to bind your domain objects instead of string represantions with converters
+	 * This allows you to bind your domain objects instead of string represantions with converters
 	 */
 	public Actual bindValue(final ValueBinding<Value> valueBinding) {
 		bind(new ValueBinding<String>() {

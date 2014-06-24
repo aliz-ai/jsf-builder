@@ -35,7 +35,7 @@ public class SelectUtils {
 		return items;
 	}
 	
-	public static List<JsfSelectItem<CountryVO>> orszagSelectItems( Collection<CountryVO> values) {
+	public static List<JsfSelectItem<CountryVO>> countrySelectItems( Collection<CountryVO> values) {
 		List<JsfSelectItem<CountryVO>> items = Lists.newArrayList();
 		for (CountryVO oneItem : values) {
 			JsfSelectItem<CountryVO> item = new JsfSelectItem<CountryVO>();
