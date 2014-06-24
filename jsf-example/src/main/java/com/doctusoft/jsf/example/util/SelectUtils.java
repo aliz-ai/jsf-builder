@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.List;
 
 import com.doctusoft.jsf.comp.JsfSelectItem;
-import com.doctusoft.jsf.example.model.OrszagVO;
+import com.doctusoft.jsf.example.model.CountryVO;
 import com.google.common.collect.Lists;
 
 public class SelectUtils {
@@ -35,12 +35,12 @@ public class SelectUtils {
 		return items;
 	}
 	
-	public static List<JsfSelectItem<OrszagVO>> orszagSelectItems( Collection<OrszagVO> values) {
-		List<JsfSelectItem<OrszagVO>> items = Lists.newArrayList();
-		for (OrszagVO oneItem : values) {
-			JsfSelectItem<OrszagVO> item = new JsfSelectItem<OrszagVO>();
-			item.setId( oneItem.getAzonosito() );
-			item.setLabel( oneItem.getNev() );
+	public static List<JsfSelectItem<CountryVO>> orszagSelectItems( Collection<CountryVO> values) {
+		List<JsfSelectItem<CountryVO>> items = Lists.newArrayList();
+		for (CountryVO oneItem : values) {
+			JsfSelectItem<CountryVO> item = new JsfSelectItem<CountryVO>();
+			item.setId( oneItem.getCode() );
+			item.setLabel( oneItem.getName() );
 			item.setValue( oneItem );
 			items.add( item );
 		}
