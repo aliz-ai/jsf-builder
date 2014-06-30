@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public class JsfFormModel extends JsfBaseComponentModel {
+public class JsfFormModel extends JsfBaseComponentModel implements IsNamingContainer {
 	
 	private String entype = Enctype.UrlEncoded;
 	

@@ -44,16 +44,4 @@ public class JsfBaseComponentModel implements HasComponentModel {
 		return this;
 	}
 
-	public String getQualifiedId() {
-		String idPart = "";
-		if (parent != null) {
-			idPart = parent.getQualifiedId();
-		} else if (rootIdChain != null) {
-			idPart = rootIdChain;
-		}
-		idPart += ":" + id;
-		return idPart;
-	}
-	
-
 }

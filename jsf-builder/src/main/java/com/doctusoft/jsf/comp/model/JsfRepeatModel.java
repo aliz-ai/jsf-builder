@@ -8,7 +8,7 @@ import lombok.Setter;
 import com.doctusoft.bean.binding.ValueBinding;
 
 @Getter @Setter
-public class JsfRepeatModel extends JsfBaseComponentModel {
+public class JsfRepeatModel extends JsfBaseComponentModel implements IsNamingContainer, IsRepeating {
 	
 	private String var;
 	
