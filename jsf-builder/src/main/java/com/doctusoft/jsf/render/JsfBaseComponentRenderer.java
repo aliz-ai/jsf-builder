@@ -1,5 +1,7 @@
 package com.doctusoft.jsf.render;
 
+import java.util.List;
+
 import javax.faces.component.UICommand;
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIOutput;
@@ -15,10 +17,14 @@ import com.doctusoft.bean.binding.ValueBinding;
 import com.doctusoft.jsf.AbstractRendererFactory;
 import com.doctusoft.jsf.RendererFactory;
 import com.doctusoft.jsf.binding.BindingWrapper;
+import com.doctusoft.jsf.comp.JsfAjaxBehavior;
 import com.doctusoft.jsf.comp.model.JsfAjaxBehaviorModel;
+import com.doctusoft.jsf.comp.model.JsfAjaxTarget;
 import com.doctusoft.jsf.comp.model.JsfBaseComponentModel;
+import com.google.common.base.Function;
 import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
 import com.sun.faces.facelets.tag.jsf.core.AjaxHandler;
 import com.sun.faces.renderkit.RenderKitUtils;
 
@@ -56,12 +62,25 @@ public class JsfBaseComponentRenderer<Component extends UIComponent> implements 
 				if (eventName == null) {
 					eventName = clientBehaviorHolder.getDefaultEventName();
 				}
-				ajaxBehavior.setExecute(Objects.firstNonNull(behaviorModel.getExecute(), ImmutableList.of("@form")));
-				ajaxBehavior.setRender(Objects.firstNonNull(behaviorModel.getRender(), ImmutableList.of("@form")));
+				ajaxBehavior.setExecute(Objects.firstNonNull(resolveAjaxTargets(behaviorModel.getExecute()), ImmutableList.of("@form")));
+				ajaxBehavior.setRender(Objects.firstNonNull(resolveAjaxTargets(behaviorModel.getRender()), ImmutableList.of("@form")));
 				clientBehaviorHolder.addClientBehavior(eventName, ajaxBehavior);
 				
 			}
 		}
+	}
+	
+	protected List<String> resolveAjaxTargets(List<JsfAjaxTarget> ajaxTargets) {
+		if (ajaxTargets == null)
+			return null;
+		return Lists.transform(ajaxTargets, new Function<JsfAjaxTarget, String>() {
+			@Override
+			public String apply(JsfAjaxTarget input) {
+				if (input.getTargetId() != null)
+					return input.getTargetId();
+				return JsfAjaxBehavior.resolveIdPart(input.getModel());
+			}
+		});
 	}
 
 	@Override

@@ -10,8 +10,8 @@ public class JsfAjaxBehaviorModel {
 	
 	private String event;
 	
-	private List<String> execute;
+	private List<JsfAjaxTarget> execute;
 	
-	private List<String> render;
+	private List<JsfAjaxTarget> render;
 
 }

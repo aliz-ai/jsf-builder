@@ -7,25 +7,32 @@ import lombok.Getter;
 import com.doctusoft.jsf.comp.model.IsNamingContainer;
 import com.doctusoft.jsf.comp.model.IsRepeating;
 import com.doctusoft.jsf.comp.model.JsfAjaxBehaviorModel;
+import com.doctusoft.jsf.comp.model.JsfAjaxTarget;
 import com.doctusoft.jsf.comp.model.JsfBaseComponentModel;
 
 public class JsfAjaxBehavior {
 	
 	@Getter
 	private JsfAjaxBehaviorModel model = new JsfAjaxBehaviorModel();
+	
+	protected void ensureExecuteList() {
+		if (model.getExecute() == null) {
+			model.setExecute(new ArrayList<JsfAjaxTarget>());
+		}
+	}
 
 	/**
 	 * nb: automatic id resolution is only partially possible, see {@link #resolveIdPart(JsfBaseComponent)} 
 	 */
 	public JsfAjaxBehavior execute(JsfBaseComponent<?, ?> component) {
-		return execute(resolveIdPart(component));
+		ensureExecuteList();
+		model.getExecute().add(new JsfAjaxTarget(component.getModel()));
+		return this;
 	}
 	
 	public JsfAjaxBehavior execute(String execute) {
-		if (model.getExecute() == null) {
-			model.setExecute(new ArrayList<String>());
-		}
-		model.getExecute().add(execute);
+		ensureExecuteList();
+		model.getExecute().add(new JsfAjaxTarget(execute));
 		return this;
 	}
 	
@@ -33,36 +40,42 @@ public class JsfAjaxBehavior {
 	 * nb: automatic id resolution is only partially possible, see {@link #resolveIdPart(JsfBaseComponent)} 
 	 */
 	public JsfAjaxBehavior render(JsfBaseComponent<?, ?> component) {
-		return render(resolveIdPart(component));
+		ensureRenderList();
+		model.getRender().add(new JsfAjaxTarget(component.getModel()));
+		return this;
 	}
 
 	/**
 	 * nb: a qualified id chain cannot be resolved through repeating components.
 	 */
-	public String resolveIdPart(JsfBaseComponent<?, ?> component) {
+	public static String resolveIdPart(final JsfBaseComponentModel model) {
 		String id = "";
-		JsfBaseComponentModel model = component.getModel();
-		while (model != null) {
-			if (model.getRootIdChain() != null) {
-				id = model.getRootIdChain();
+		JsfBaseComponentModel item = model;
+		while (item != null) {
+			if (item.getRootIdChain() != null) {
+				id = item.getRootIdChain();
 				break;
-			} else if (model instanceof IsNamingContainer) {
-				if (model instanceof IsRepeating)
+			} else if (item instanceof IsNamingContainer) {
+				if (item instanceof IsRepeating)
 					throw new RuntimeException("Cannot resolve the qualified id of this component, because it's contained in a repeating container");
-				id = ":" + model.getId() + id; 
+				id = ":" + item.getId() + id; 
 			}
-			model = model.getParent();
+			item = item.getParent();
 		}
-		id += ":" + component.getModel().getId();
+		id += ":" + model.getId();
 		return id;
 	}
 	
 	public JsfAjaxBehavior render(String render) {
-		if (model.getRender() == null) {
-			model.setRender(new ArrayList<String>());
-		}
-		model.getRender().add(render);
+		ensureRenderList();
+		model.getRender().add(new JsfAjaxTarget(render));
 		return this;
+	}
+
+	protected void ensureRenderList() {
+		if (model.getRender() == null) {
+			model.setRender(new ArrayList<JsfAjaxTarget>());
+		}
 	}
 	
 	public JsfAjaxBehavior withEvent(String event) {
