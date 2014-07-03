@@ -1,5 +1,6 @@
 package com.doctusoft.jsf.comp;
 
+import javax.faces.convert.Converter;
 import javax.faces.validator.Validator;
 
 import com.doctusoft.bean.binding.ConstantValueBinding;
@@ -61,5 +62,10 @@ public abstract class JsfAbstractInput<Actual extends JsfAbstractInput, Value, M
 	public Actual clearValidators() {
 		model.getValidators().clear();
 		return (Actual) this; 
+	}
+	
+	public Actual setConverter(Converter converter) {
+		model.setConverter(converter);
+		return (Actual) this;
 	}
 }

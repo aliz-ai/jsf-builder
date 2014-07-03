@@ -2,6 +2,7 @@ package com.doctusoft.jsf.comp.model;
 
 import java.util.List;
 
+import javax.faces.convert.Converter;
 import javax.faces.validator.Validator;
 
 import lombok.Getter;
@@ -18,5 +19,6 @@ public abstract class JsfInputModel<Value> extends JsfOutputModel<Value> {
 	private ValueBinding<Boolean> readonly;
 	private boolean immediate = false;
 	private List<Validator> validators = Lists.newArrayList();
+	private Converter converter;
 	
 }
