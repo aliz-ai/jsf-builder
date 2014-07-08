@@ -34,7 +34,7 @@ public class TestView extends AbstractBackingView<TestBacking> {
 		new JsfCheckbox("testCheckbox").appendTo(form);
 		new JsfTextarea("testTextarea").appendTo(form);
 		
-		new JsfSelectOneMenu<PaymentType>("paymentTypeMenuSelect2")
+		new JsfSelectOneMenu<PaymentType>("paymentTypeMenuSelect")
 				.bindValue(bindOnPresenter().get(TestBacking_._selectedPaymentType))
 				.withSelectItems(TestBacking.paymentTypeSelectItems).appendTo(form);
 
@@ -42,7 +42,7 @@ public class TestView extends AbstractBackingView<TestBacking> {
 		
 		JsfPanelGroup pg = new JsfPanelGroup("visibleHiddenPanelGroup").rendered(bindOnPresenter().get(TestBacking_._pGVisible)).appendTo(form);
 				
-		new JsfSelectOneMenu<CountryVO>("countryMenuSelect2")
+		new JsfSelectOneMenu<CountryVO>("countryMenuSelect")
 				.bindValue(bindOnPresenter().get(TestBacking_._country))
 				.withSelectItems(TestBacking.countrySelectItems)
 				.appendTo(pg);

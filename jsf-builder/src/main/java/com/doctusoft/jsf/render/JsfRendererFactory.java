@@ -18,9 +18,7 @@ import com.doctusoft.jsf.comp.model.JsfOutputTextModel;
 import com.doctusoft.jsf.comp.model.JsfPanelGroupModel;
 import com.doctusoft.jsf.comp.model.JsfRepeatModel;
 import com.doctusoft.jsf.comp.model.JsfSelectOneMenuModel;
-import com.doctusoft.jsf.comp.model.JsfSelectOneMenuModel2;
 import com.doctusoft.jsf.comp.model.JsfSelectOneRadioModel;
-import com.doctusoft.jsf.comp.model.JsfSelectOneRadioModel2;
 import com.doctusoft.jsf.comp.model.JsfTextareaModel;
 import com.doctusoft.jsf.custom.CustomContentComponent;
 import com.doctusoft.jsf.custom.CustomElementComponent;
@@ -66,10 +64,6 @@ public class JsfRendererFactory extends AbstractRendererFactory {
 			return new JsfInputHiddenRenderer((JsfInputHiddenModel) model);
 		if (model instanceof JsfMessageModel)
 			return new JsfMessageRenderer((JsfMessageModel) model);
-		if (model instanceof JsfSelectOneRadioModel2)
-			return new JsfSelectOneRadioRenderer2((JsfSelectOneRadioModel2) model);
-		if (model instanceof JsfSelectOneMenuModel2)
-			return new JsfSelectOneMenuRenderer2((JsfSelectOneMenuModel2) model);
 		return null;
 	}
 
