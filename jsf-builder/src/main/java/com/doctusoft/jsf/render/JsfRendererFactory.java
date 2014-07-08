@@ -13,6 +13,7 @@ import com.doctusoft.jsf.comp.model.JsfFormModel;
 import com.doctusoft.jsf.comp.model.JsfInputHiddenModel;
 import com.doctusoft.jsf.comp.model.JsfInputTextModel;
 import com.doctusoft.jsf.comp.model.JsfLabelModel;
+import com.doctusoft.jsf.comp.model.JsfLinkModel;
 import com.doctusoft.jsf.comp.model.JsfMessageModel;
 import com.doctusoft.jsf.comp.model.JsfNumberInputModel;
 import com.doctusoft.jsf.comp.model.JsfOutputTextModel;
@@ -73,6 +74,8 @@ public class JsfRendererFactory extends AbstractRendererFactory {
 			return new JsfSelectOneMenuRenderer2((JsfSelectOneMenuModel2) model);
 		if (model instanceof JsfNumberInputModel)
 			return new JsfNumberInputRenderer((JsfNumberInputModel) model);
+		if (model instanceof JsfLinkModel)
+			return new JsfLinkRenderer((JsfLinkModel) model);
 		return null;
 	}
 
