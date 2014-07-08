@@ -27,6 +27,14 @@ public class JsfLink extends JsfBaseComponent<JsfLink, JsfLinkModel> {
 		return this;
 	}
 	
+	public JsfLink bindCaption(ValueBinding<String> caption) {
+		JsfOutputTextModel captionModel = new JsfOutputTextModel();
+		captionModel.setValue(caption);
+		model.setChildren(new ArrayList<JsfBaseComponentModel>());
+		model.getChildren().add(captionModel);
+		return this;
+	}
+	
 	public JsfLink withOutcome(String outcome) {
 		model.setOutcome(new ConstantValueBinding<String>(outcome));
 		return this;
