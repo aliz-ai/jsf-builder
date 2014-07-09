@@ -103,12 +103,6 @@ public class JsfBaseComponentRenderer<Component extends UIComponent> implements 
 		}
 	}
 	
-	protected <T> void bindBoolean(String property, ValueBinding<Boolean> binding) {
-		if (binding != null) {
-			component.setValueExpression(property, new BindingWrapper<Boolean>(binding, Boolean.class));
-		}
-	}
-
 	public void bindCommand(final EmptyEventHandler handler) {
 		if (handler == null)
 			return;

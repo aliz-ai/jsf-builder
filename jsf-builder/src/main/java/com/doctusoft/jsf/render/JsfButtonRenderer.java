@@ -13,7 +13,7 @@ public class JsfButtonRenderer extends JsfBaseComponentRenderer<HtmlCommandButto
 	public JsfButtonRenderer(String componentType, JsfButtonModel model) {
 		super(componentType, model);
 		bind("value", model.getCaption());
-		bindBoolean("immediate", model.getImmediate());
+		bind("immediate", model.getImmediate(), Boolean.class);
 		bindCommand(model.getAction());
 	}
 }
