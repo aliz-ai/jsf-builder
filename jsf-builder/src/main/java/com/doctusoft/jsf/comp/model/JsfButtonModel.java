@@ -10,6 +10,7 @@ import com.doctusoft.bean.binding.ValueBinding;
 public class JsfButtonModel extends JsfBaseComponentModel {
 	
 	private ValueBinding<String> caption;
+	private ValueBinding<Boolean> immediate;
 	
 	private EmptyEventHandler action;
 
