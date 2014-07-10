@@ -12,6 +12,7 @@ import com.google.common.collect.Maps;
 public class JsfCustomElementModel extends JsfBaseComponentModel {
 	
 	private String elementName;
+	private String text;
 	
 	private Map<String, String> attributes = Maps.newHashMap();
 	private Map<String, ValueBinding<?>> attributesWithBinding = Maps.newHashMap();

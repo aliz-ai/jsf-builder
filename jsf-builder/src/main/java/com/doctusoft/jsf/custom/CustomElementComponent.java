@@ -42,7 +42,8 @@ public class CustomElementComponent extends UIComponentBase {
 		StringBuilder builder = new StringBuilder();
 		builder.append("<" + elementName);
 		
-		if (!Strings.isNullOrEmpty(id)) {
+		if (!Strings.isNullOrEmpty(id) && !(getAdditionalAttributes().keySet().contains("id") 
+				|| getAdditionalAttributesWithBinding().keySet().contains("id"))) {
 			builder.append(" id=\"" + id + "\"");
 		}
 		
