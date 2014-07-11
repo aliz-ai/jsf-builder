@@ -16,6 +16,7 @@ public class JsfInputRenderer<Component extends UIInput, Model extends JsfInputM
 		for (Validator validator : model.getValidators()) {
 			component.addValidator(validator);
 		}
+		component.setConverter(model.getConverter());
 	}
 
 }

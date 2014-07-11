@@ -24,4 +24,8 @@ public class JsfCustomElement extends JsfBaseComponent<JsfCustomElement, JsfCust
 		return this;
 	}
 
+	public JsfCustomElement withText(String text) {
+		model.setText(text);
+		return this;
+	}
 }

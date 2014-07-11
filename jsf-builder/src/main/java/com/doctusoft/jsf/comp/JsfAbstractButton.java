@@ -25,5 +25,10 @@ public abstract class JsfAbstractButton<Actual, Model extends JsfButtonModel> ex
 		model.setAction(handler);
 		return (Actual) this;
 	}
+	
+	public Actual immediate() {
+		model.setImmediate(new ConstantValueBinding<Boolean>(true));
+		return (Actual) this;
+	}
 
 }

@@ -7,13 +7,16 @@ import com.doctusoft.jsf.AbstractRendererFactory;
 import com.doctusoft.jsf.comp.model.JsfBaseComponentModel;
 import com.doctusoft.jsf.comp.model.JsfButtonModel;
 import com.doctusoft.jsf.comp.model.JsfCheckboxModel;
+import com.doctusoft.jsf.comp.model.JsfCommandLinkModel;
 import com.doctusoft.jsf.comp.model.JsfCustomContentModel;
 import com.doctusoft.jsf.comp.model.JsfCustomElementModel;
 import com.doctusoft.jsf.comp.model.JsfFormModel;
 import com.doctusoft.jsf.comp.model.JsfInputHiddenModel;
 import com.doctusoft.jsf.comp.model.JsfInputTextModel;
 import com.doctusoft.jsf.comp.model.JsfLabelModel;
+import com.doctusoft.jsf.comp.model.JsfLinkModel;
 import com.doctusoft.jsf.comp.model.JsfMessageModel;
+import com.doctusoft.jsf.comp.model.JsfNumberInputModel;
 import com.doctusoft.jsf.comp.model.JsfOutputTextModel;
 import com.doctusoft.jsf.comp.model.JsfPanelGroupModel;
 import com.doctusoft.jsf.comp.model.JsfRepeatModel;
@@ -64,6 +67,12 @@ public class JsfRendererFactory extends AbstractRendererFactory {
 			return new JsfInputHiddenRenderer((JsfInputHiddenModel) model);
 		if (model instanceof JsfMessageModel)
 			return new JsfMessageRenderer((JsfMessageModel) model);
+		if (model instanceof JsfNumberInputModel)
+			return new JsfNumberInputRenderer((JsfNumberInputModel) model);
+		if (model instanceof JsfLinkModel)
+			return new JsfLinkRenderer((JsfLinkModel) model);
+		if (model instanceof JsfCommandLinkModel) 
+			return new JsfCommandLinkRenderer((JsfCommandLinkModel) model);
 		return null;
 	}
 

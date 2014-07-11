@@ -8,7 +8,7 @@ public class JsfCustomElementRenderer extends JsfBaseComponentRenderer<CustomEle
 	public JsfCustomElementRenderer(JsfCustomElementModel model) {
 		super(CustomElementComponent.COMPONENT_TYPE, model);
 		component.setElementName(model.getElementName());
-		component.setId(model.getId());
+		component.setText(model.getText());
 		if (model.getStyleClass() != null)
 			component.setStyleClass(model.getStyleClass().getValue());
 		if (model.getStyle() != null)

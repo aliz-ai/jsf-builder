@@ -5,6 +5,7 @@ import com.doctusoft.jsf.render.JsfRendererFactory;
 import com.doctusoft.jsf.render.Renderer;
 import com.doctusoft.primefaces.comp.model.PCalendarModel;
 import com.doctusoft.primefaces.comp.model.PCommandButtonModel;
+import com.doctusoft.primefaces.comp.model.PDialogModel;
 import com.doctusoft.primefaces.comp.model.PInputTextModel;
 
 public class PRendererFactory extends JsfRendererFactory {
@@ -17,6 +18,8 @@ public class PRendererFactory extends JsfRendererFactory {
 			return new PCalendarRenderer((PCalendarModel) model);
 		if (model instanceof PInputTextModel)
 			return new PInputTextRenderer((PInputTextModel) model);
+		if (model instanceof PDialogModel)
+			return new PDialogRenderer((PDialogModel) model);
 		return super.resolveRenderer(model);
 	}
 
