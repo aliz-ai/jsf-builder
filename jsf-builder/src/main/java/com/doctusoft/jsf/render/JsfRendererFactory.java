@@ -7,6 +7,7 @@ import com.doctusoft.jsf.AbstractRendererFactory;
 import com.doctusoft.jsf.comp.model.JsfBaseComponentModel;
 import com.doctusoft.jsf.comp.model.JsfButtonModel;
 import com.doctusoft.jsf.comp.model.JsfCheckboxModel;
+import com.doctusoft.jsf.comp.model.JsfCommandLinkModel;
 import com.doctusoft.jsf.comp.model.JsfCustomContentModel;
 import com.doctusoft.jsf.comp.model.JsfCustomElementModel;
 import com.doctusoft.jsf.comp.model.JsfFormModel;
@@ -76,6 +77,8 @@ public class JsfRendererFactory extends AbstractRendererFactory {
 			return new JsfNumberInputRenderer((JsfNumberInputModel) model);
 		if (model instanceof JsfLinkModel)
 			return new JsfLinkRenderer((JsfLinkModel) model);
+		if (model instanceof JsfCommandLinkModel) 
+			return new JsfCommandLinkRenderer((JsfCommandLinkModel) model);
 		return null;
 	}
 
