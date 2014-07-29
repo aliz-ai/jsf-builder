@@ -8,6 +8,7 @@ public class JsfSelectOneRadioRenderer extends JsfSelectOneRenderer<HtmlSelectOn
 
 	public JsfSelectOneRadioRenderer(JsfSelectOneRadioModel model) {
 		super(HtmlSelectOneRadio.COMPONENT_TYPE, model);
+		bind("layout", model.getLayout());
 	}
 
 }

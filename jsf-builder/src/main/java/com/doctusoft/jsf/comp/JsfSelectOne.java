@@ -10,12 +10,12 @@ import com.doctusoft.jsf.comp.model.JsfSelectModel;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
-public abstract class JsfSelectOne<Value, Actual extends JsfSelectOne<?,?>> extends JsfAbstractInput<Actual, String, JsfSelectModel> {
+public abstract class JsfSelectOne<Value, Actual extends JsfSelectOne<?,?,?>, Model extends JsfSelectModel> extends JsfAbstractInput<Actual, String, Model> {
 
 	private Map<Value, JsfSelectItem<Value>> itemsByObject = Maps.newHashMap();
 	private Map<String, JsfSelectItem<Value>> itemsByValue = Maps.newHashMap();
 
-	public JsfSelectOne(String id, JsfSelectModel model) {
+	public JsfSelectOne(String id, Model model) {
 		super(id, model);
 	}
 
