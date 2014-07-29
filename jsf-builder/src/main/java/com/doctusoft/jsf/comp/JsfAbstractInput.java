@@ -24,6 +24,16 @@ public abstract class JsfAbstractInput<Actual extends JsfAbstractInput, Value, M
 		return (Actual) this;
 	}
 
+	public Actual withDisabled(boolean value) {
+		model.setDisabled(new ConstantValueBinding<Boolean>(value));
+		return (Actual)this;
+	}
+
+	public Actual disabled(ValueBinding<Boolean> binding) {
+		model.setDisabled(binding);
+		return (Actual)this;
+	}
+	
 	public Actual withReadonly(boolean value) {
 		model.setReadonly(new ConstantValueBinding<Boolean>(value));
 		return (Actual) this;

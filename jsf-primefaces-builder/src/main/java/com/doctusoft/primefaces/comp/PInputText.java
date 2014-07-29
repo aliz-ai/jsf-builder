@@ -20,15 +20,4 @@ public class PInputText extends JsfAbstractInput<PInputText, String, PInputTextM
 		model.setMaxLength(binding);
 		return this;
 	}
-
-	public PInputText withDisabled(boolean value) {
-		model.setDisabled(new ConstantValueBinding<Boolean>(value));
-		return this;
-	}
-
-	public PInputText disabled(ValueBinding<Boolean> binding) {
-		model.setDisabled(binding);
-		return this;
-	}
-
 }
