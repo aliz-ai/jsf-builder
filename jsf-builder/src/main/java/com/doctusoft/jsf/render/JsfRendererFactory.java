@@ -16,6 +16,7 @@ import com.doctusoft.jsf.comp.model.JsfInputTextModel;
 import com.doctusoft.jsf.comp.model.JsfLabelModel;
 import com.doctusoft.jsf.comp.model.JsfLinkModel;
 import com.doctusoft.jsf.comp.model.JsfMessageModel;
+import com.doctusoft.jsf.comp.model.JsfNamingContainerModel;
 import com.doctusoft.jsf.comp.model.JsfNumberInputModel;
 import com.doctusoft.jsf.comp.model.JsfOutputTextModel;
 import com.doctusoft.jsf.comp.model.JsfPanelGroupModel;
@@ -73,6 +74,8 @@ public class JsfRendererFactory extends AbstractRendererFactory {
 			return new JsfLinkRenderer((JsfLinkModel) model);
 		if (model instanceof JsfCommandLinkModel) 
 			return new JsfCommandLinkRenderer((JsfCommandLinkModel) model);
+		if (model instanceof JsfNamingContainerModel) 
+			return new JsfNamingContainerRenderer((JsfNamingContainerModel) model);
 		return null;
 	}
 

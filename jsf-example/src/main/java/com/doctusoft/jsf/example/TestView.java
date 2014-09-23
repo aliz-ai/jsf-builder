@@ -11,6 +11,7 @@ import com.doctusoft.jsf.comp.JsfForm;
 import com.doctusoft.jsf.comp.JsfInputText;
 import com.doctusoft.jsf.comp.JsfLabel;
 import com.doctusoft.jsf.comp.JsfLink;
+import com.doctusoft.jsf.comp.JsfNamingContainer;
 import com.doctusoft.jsf.comp.JsfPanelGroup;
 import com.doctusoft.jsf.comp.JsfSelectOneMenu;
 import com.doctusoft.jsf.comp.JsfTextarea;
@@ -28,8 +29,9 @@ public class TestView extends AbstractBackingView<TestBacking> {
 	public TestView() {
 		super(TestBacking.class, "TestBacking", "test");
 		form = new JsfForm("mainform").appendTo(container);
-		
-		new JsfLink("link1", "Link Test").withOutcome("AjaxTest.jsf").appendTo(form);
+
+		JsfNamingContainer namingContainer = new JsfNamingContainer("namingContainerId").appendTo(form);
+		new JsfLink("link1", "Link Test").withOutcome("AjaxTest.jsf").appendTo(namingContainer);
 
 		new JsfLabel("headerLabel", "Component showcase").withStyleClasses("heading").appendTo(form);
 		new JsfInputText("messageInput").bind(bindOnPresenter().get(TestBacking_._input)).appendTo(form);
