@@ -6,10 +6,12 @@ import lombok.Setter;
 import com.doctusoft.bean.binding.EmptyEventHandler;
 import com.doctusoft.bean.binding.ValueBinding;
 
-@Getter @Setter
+@Getter
+@Setter
 public class JsfCommandLinkModel extends JsfBaseComponentModel {
-	
+
 	private ValueBinding<String> caption;
 	private EmptyEventHandler action;
-	
+	private ValueBinding<Boolean> immediate;
+
 }
