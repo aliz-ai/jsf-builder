@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>com.doctusoft</groupId>
 		<artifactId>jsf-builder-parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.0.2-SNAPSHOT</version>
 	</parent>
 	<artifactId>jsf-example</artifactId>
 	<name>jsf-example</name>
@@ -33,26 +33,26 @@
 		<dependency> <!-- to have the sources in eclipse -->
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-impl</artifactId>
-			<version>2.1.13</version>
+			<version>2.2.13</version>
 		</dependency>
 
 		<dependency>
 		    <groupId>javax.el</groupId>
-		    <artifactId>el-api</artifactId>
-		    <version>2.2</version>
+		    <artifactId>javax.el-api</artifactId>
+		    <version>3.0.0</version>
 		    <scope>provided</scope>
 		  </dependency>
 
 		<dependency>
 	        <groupId>com.sun.faces</groupId>
 	        <artifactId>jsf-api</artifactId>
-	        <version>2.1.13</version>
+	        <version>2.2.13</version>
 	    </dependency>
 
 		<dependency>
 	        <groupId>javax.servlet</groupId>
 	        <artifactId>javax.servlet-api</artifactId>
-	        <version>3.0.1</version>
+	        <version>3.1.0</version>
 	        <scope>provided</scope>
 	    </dependency>
 

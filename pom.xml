@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.doctusoft</groupId>
 	<artifactId>jsf-builder-parent</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>jsf-builder-parent</name>
 	<packaging>pom</packaging>
 
@@ -13,9 +13,9 @@
 	</modules>
 
 	<properties>
-		<version.guava>16.0.1</version.guava>
-		<lombok.ds.version>0.2.4</lombok.ds.version>
-		<ds.bean.version>0.2.8-SNAPSHOT</ds.bean.version>
+		<version.guava>19.0</version.guava>
+		<lombok.ds.version>0.4.4</lombok.ds.version>
+		<ds.bean.version>0.4.12</ds.bean.version>
 
 		<gwt.version>2.6.0</gwt.version>
 		<gae.version>1.9.3</gae.version>
@@ -29,8 +29,8 @@
 		<version.maven.war.plugin>2.4</version.maven.war.plugin>
 
 		<!-- maven-compiler-plugin -->
-		<maven.compiler.source>1.6</maven.compiler.source>
-		<maven.compiler.target>1.6</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 
 	 	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	 </properties>
@@ -116,7 +116,7 @@
 			<dependency>
 				<groupId>commons-beanutils</groupId>
 				<artifactId>commons-beanutils</artifactId>
-				<version>1.8.3</version>
+				<version>1.9.2</version>
 			</dependency>
 			<dependency>
 				<groupId>junit</groupId>
@@ -159,12 +159,6 @@
 	</dependencies>
 
 	<repositories>
-		<repository>  
-		    <id>prime-repo</id>  
-		    <name>PrimeFaces Maven Repository</name>  
-		    <url>http://repository.primefaces.org</url>  
-		    <layout>default</layout>  
-		</repository>  
 		<repository>
 			<id>doctusoft.releases.public</id>
 			<url>http://pubrepo.doctusoft.com/nexus/content/repositories/releases</url>
