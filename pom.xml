@@ -29,8 +29,8 @@
 		<version.maven.war.plugin>2.4</version.maven.war.plugin>
 
 		<!-- maven-compiler-plugin -->
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.6</maven.compiler.source>
+		<maven.compiler.target>1.6</maven.compiler.target>
 
 	 	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	 </properties>
