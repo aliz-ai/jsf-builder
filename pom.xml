@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.doctusoft</groupId>
 	<artifactId>jsf-builder-parent</artifactId>
-	<version>0.0.2</version>
+	<version>0.0.3-SNAPSHOT</version>
 	<name>jsf-builder-parent</name>
 	<packaging>pom</packaging>
 
@@ -212,6 +212,6 @@
 
 	<scm>
 		<connection>scm:git:https://github.com/Doctusoft/jsf-builder</connection>
-    <tag>v0.0.2</tag>
+    <tag>HEAD</tag>
   </scm>
 </project>
